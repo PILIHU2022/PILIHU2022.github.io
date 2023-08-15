@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Arch Linux安装教程</title>
+    <url>/Arch%20Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Arch Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hyprland指南(安装)</title>
     <url>/Hyprland%E6%8C%87%E5%8D%97(%E5%AE%89%E8%A3%85)/</url>
     <content><![CDATA[<h1 id="这是我安装Hyprland的设备"><a href="#这是我安装Hyprland的设备" class="headerlink" title="这是我安装Hyprland的设备"></a>这是我安装Hyprland的设备</h1><ul>
@@ -68,7 +76,9 @@
 <p>在AUR中有一个包名叫做<code>vnote</code>的,我试过,无法使用中文输入,所以使用<code>vnote-appimage</code></p>
 <h4 id="安装Typora"><a href="#安装Typora" class="headerlink" title="安装Typora"></a>安装Typora</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S Typora</span><br></pre></td></tr></table></figure>
 <p><del>当然,这是有米的人的操作</del></p>
-<h5 id="想使用破解版的可以添加zzy-ac源-有米的人可以跳过"><a href="#想使用破解版的可以添加zzy-ac源-有米的人可以跳过" class="headerlink" title="想使用破解版的可以添加zzy-ac源(有米的人可以跳过)"></a>想使用破解版的可以添加zzy-ac源(<del>有米的人可以跳过</del>)</h5><p>在&#x2F;etc&#x2F;pacman.conf中添加:<br><code>[zzy-ac] SigLevel=Never Server = https://github.com/zzy-ac/repo/releases/download/x86_64/ Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64</code><br>安装Typora</p>
+<h5 id="想使用破解版的可以添加zzy-ac源-有米的人可以跳过"><a href="#想使用破解版的可以添加zzy-ac源-有米的人可以跳过" class="headerlink" title="想使用破解版的可以添加zzy-ac源(有米的人可以跳过)"></a>想使用破解版的可以添加zzy-ac源(<del>有米的人可以跳过</del>)</h5><p>在&#x2F;etc&#x2F;pacman.conf中添加:<br>&#96;<br>[zzy-ac]<br>SigLevel&#x3D;Never</p>
+<p>Server &#x3D; <a href="https://github.com/zzy-ac/repo/releases/download/x86_64/">https://github.com/zzy-ac/repo/releases/download/x86_64/</a></p>
+<p>Server &#x3D; <a href="https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64">https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64</a><br>&#96;<br>安装Typora</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S zzy-ac/typora-electron-crack</span><br></pre></td></tr></table></figure>
 
 <h1 id="All-done-Enjoy-it"><a href="#All-done-Enjoy-it" class="headerlink" title="All done! Enjoy it!"></a>All done! Enjoy it!</h1><h1 id="Writer-PILIHU"><a href="#Writer-PILIHU" class="headerlink" title="Writer:PILIHU"></a>Writer:PILIHU</h1>]]></content>
