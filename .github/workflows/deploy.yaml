@@ -3,7 +3,7 @@ name: My blog Deploy
 on:
   push:
     branches:
-      - dev
+      - docs
 
 jobs:
   build: 
