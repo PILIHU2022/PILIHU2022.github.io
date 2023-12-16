@@ -25,8 +25,8 @@ jobs:
         run: 
           mkdir -p ./source/{_posts,categories,tags};
           cp ./*.md ./source/_posts;
-          cp ./categories/index.md ./source/categories;
-          cp ./tags/index.md ./source/tags;
+          cp ./categories/index.html ./source/categories;
+          cp ./tags/index.html ./source/tags;
           # cp -f ./_config.*.yml ./;
       - name: Fix File Modify Date
         run: |
