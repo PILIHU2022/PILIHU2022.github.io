@@ -24,7 +24,7 @@ jobs:
       - name: Copy my posts
         run: 
           mkdir -p ./source/{_posts,categories,tags};
-          cp ./*.md ./source/_posts;
+          cp ./docs/*.md ./source/_posts;
           cp ./categories/index.html ./source/categories;
           cp ./tags/index.html ./source/tags;
           # cp -f ./_config.*.yml ./;
