@@ -20,7 +20,7 @@ jobs:
           node-version: 21
       - name: Install Dependencies
         run: 
-          npm install
+          npm install;
           npm update
       # - name: Look floder
       #   run: 
