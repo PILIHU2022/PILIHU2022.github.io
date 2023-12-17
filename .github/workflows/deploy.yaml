@@ -21,6 +21,7 @@ jobs:
       - name: Install Dependencies
         run: 
           npm install
+          npm update hexo-theme-butterfly
       # - name: Look floder
       #   run: 
       #     tree -I 'node_modules,.git,scaffolds'
@@ -31,8 +32,8 @@ jobs:
       #     cp ./categories/index.html ./source/categories;
       #     cp ./tags/index.html ./source/tags;
       #     # cp -f ./_config.*.yml ./;
-      - name: Check _config.butterfly.yml
-        run: cat _config.butterfly.yml
+      # - name: Check _config.butterfly.yml
+      #   run: cat _config.butterfly.yml
       - name: Fix File Modify Date
         run: |
           git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
