@@ -21,9 +21,9 @@ jobs:
       - name: Install Dependencies
         run: 
           npm install
-      - name: Look floder
-        run: 
-          tree -I 'node_modules,.git,scaffolds'
+      # - name: Look floder
+      #   run: 
+      #     tree -I 'node_modules,.git,scaffolds'
       # - name: Copy my posts
       #   run: 
       #     mkdir -p ./source/{_posts,categories,tags};
@@ -31,6 +31,8 @@ jobs:
       #     cp ./categories/index.html ./source/categories;
       #     cp ./tags/index.html ./source/tags;
       #     # cp -f ./_config.*.yml ./;
+      - name: Check _config.butterfly.yml
+        run: cat _config.butterfly.yml
       - name: Fix File Modify Date
         run: |
           git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
