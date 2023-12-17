@@ -21,7 +21,7 @@ jobs:
       - name: Install Dependencies
         run: 
           npm install
-          npm update hexo-theme-butterfly
+          npm update
       # - name: Look floder
       #   run: 
       #     tree -I 'node_modules,.git,scaffolds'
