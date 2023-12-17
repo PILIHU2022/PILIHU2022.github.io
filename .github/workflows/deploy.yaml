@@ -22,7 +22,7 @@ jobs:
         run: 
           npm install
       - name: Look floder
-        run: ls -a
+        run: ls --tree -l 'node_modules' '.git' '.github'
       # - name: Copy my posts
       #   run: 
       #     mkdir -p ./source/{_posts,categories,tags};
