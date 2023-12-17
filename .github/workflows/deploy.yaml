@@ -23,7 +23,7 @@ jobs:
           npm install
       - name: Look floder
         run: 
-          sudo apt install eza
+          sudo apt install eza;
           eza --tree -l 'node_modules' '.git' '.github'
       # - name: Copy my posts
       #   run: 
