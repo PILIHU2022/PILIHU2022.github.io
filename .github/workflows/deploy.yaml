@@ -21,13 +21,15 @@ jobs:
       - name: Install Dependencies
         run: 
           npm install
-      - name: Copy my posts
-        run: 
-          mkdir -p ./source/{_posts,categories,tags};
-          cp ./docs/*.md ./source/_posts;
-          cp ./categories/index.html ./source/categories;
-          cp ./tags/index.html ./source/tags;
-          # cp -f ./_config.*.yml ./;
+      - name: Look floder
+        run: ls -a
+      # - name: Copy my posts
+      #   run: 
+      #     mkdir -p ./source/{_posts,categories,tags};
+      #     cp ./docs/*.md ./source/_posts;
+      #     cp ./categories/index.html ./source/categories;
+      #     cp ./tags/index.html ./source/tags;
+      #     # cp -f ./_config.*.yml ./;
       - name: Fix File Modify Date
         run: |
           git ls-files | while read filepath; do touch -d "$(git log -1 --format='@%ct' $filepath)" "$filepath" && echo "Fixed: $filepath"; done
