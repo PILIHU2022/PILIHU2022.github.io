@@ -22,7 +22,9 @@ jobs:
         run: 
           npm install
       - name: Look floder
-        run: ls --tree -l 'node_modules' '.git' '.github'
+        run: 
+          sudo apt install eza
+          eza --tree -l 'node_modules' '.git' '.github'
       # - name: Copy my posts
       #   run: 
       #     mkdir -p ./source/{_posts,categories,tags};
