@@ -32,6 +32,14 @@
       </tags>
   </entry>
   <entry>
+    <title>新年快乐！</title>
+    <url>/Happy-New-Year/</url>
+    <content><![CDATA[<h1 id="Happy-New-Year"><a href="#Happy-New-Year" class="headerlink" title="Happy New Year!"></a>Happy New Year!</h1><h1 id="本Blog在此祝大家新年快乐！"><a href="#本Blog在此祝大家新年快乐！" class="headerlink" title="本Blog在此祝大家新年快乐！"></a>本Blog在此祝大家新年快乐！</h1><h1 id="再见2023，你好2024！"><a href="#再见2023，你好2024！" class="headerlink" title="再见2023，你好2024！"></a>再见2023，你好2024！</h1><h1 id="Goodbye-2023-Hello2024"><a href="#Goodbye-2023-Hello2024" class="headerlink" title="Goodbye 2023,Hello2024!"></a>Goodbye 2023,Hello2024!</h1>]]></content>
+      <tags>
+        <tag>Blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Arch Linux安装教程(BIOS)</title>
     <url>/How-to-install-Arch(BIOS)/</url>
     <content><![CDATA[<h1 id="本文介绍Arch-Linux安装，以BIOS方式为例"><a href="#本文介绍Arch-Linux安装，以BIOS方式为例" class="headerlink" title="本文介绍Arch Linux安装，以BIOS方式为例"></a>本文介绍Arch Linux安装，以BIOS方式为例</h1><h1 id="本文所输入的命令均可用Tab键补全"><a href="#本文所输入的命令均可用Tab键补全" class="headerlink" title="本文所输入的命令均可用Tab键补全"></a><em>本文所输入的命令均可用Tab键补全</em></h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="Arch-Linux官方安装指南"><a href="#Arch-Linux官方安装指南" class="headerlink" title="Arch Linux官方安装指南"></a><a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">Arch Linux官方安装指南</a></h2><h3 id="Arch-Linux镜像下载地址USTC，2023-07-01"><a href="#Arch-Linux镜像下载地址USTC，2023-07-01" class="headerlink" title="Arch Linux镜像下载地址USTC，2023.07.01"></a><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.07.01/archlinux-2023.07.01-x86_64.iso">Arch Linux镜像下载地址USTC，2023.07.01</a></h3><h1 id="注意：-Arch-Linux-安装镜像不支持安全启动（Secure-Boot）注意：-Arch-Linux-安装镜像不支持安全启动（Secure-Boot）-详见wiki"><a href="#注意：-Arch-Linux-安装镜像不支持安全启动（Secure-Boot）注意：-Arch-Linux-安装镜像不支持安全启动（Secure-Boot）-详见wiki" class="headerlink" title="注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki"></a>注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）<a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki</a></h1><h1 id="前面说了一堆废话现在开始实操"><a href="#前面说了一堆废话现在开始实操" class="headerlink" title="前面说了一堆废话现在开始实操"></a><del>前面说了一堆废话现在开始实操</del></h1><h1 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h1><p>启动后，先禁用reflector服务</p>
