@@ -1,7 +1,7 @@
 ---
 title: Arch Linux安装教程(以Legacy BIOS为例)
 date: 2023-01-06 13:30:43
-categories: Arch-Linux
+categories: Arch Linux
 tags: 
 - Guides
 - Arch Linux
