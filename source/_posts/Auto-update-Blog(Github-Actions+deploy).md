@@ -2,6 +2,7 @@
 title: 实现自动更新Blog(actions-gh-page)
 date: 2023-12-24 14:06:20
 tags: Blog
+categories: Guide
 ---
 # 简介
 群友“竹林里有冰”的Blog有一个部署方案，如下：

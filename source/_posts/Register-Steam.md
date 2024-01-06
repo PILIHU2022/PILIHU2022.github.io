@@ -1,6 +1,7 @@
 ---
 title: 论注册Steam
 date: 2023-12-16 21:59:54
+categories: Others
 tags: Others
 ---
 # 关于Steam

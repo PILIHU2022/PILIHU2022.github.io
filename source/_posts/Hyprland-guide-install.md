@@ -1,8 +1,10 @@
 ---
 title: Hyprland指南(安装)
 date: 2023-08-14 15:25:00
-tags: Hyprland
-type: "tags"
+categories: Guide
+tags: 
+- Guides
+- Hyprland
 ---
 # 这是我安装Hyprland的设备
 - OS:Arch Linux

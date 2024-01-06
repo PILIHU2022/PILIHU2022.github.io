@@ -1,8 +1,10 @@
 ---
 title: Hyprland指南(安装其他软件)
 date: 2023-08-14 15:25:00
-tags: Hyprland
-type: "tags"
+categories: Guide
+tags:
+- Guide
+- Hyprland
 ---
 
 #Hyprland指南(第二篇)
