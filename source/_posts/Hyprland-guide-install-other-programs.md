@@ -7,7 +7,7 @@ tags:
 - Hyprland
 ---
 
-#Hyprland指南(第二篇)
+# Hyprland指南(第二篇)
 ## 若想使用通知，需要安装 dunst
 如下:
 ```
