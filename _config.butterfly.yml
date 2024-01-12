@@ -487,9 +487,9 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://waline.blog-zjp.cn.eu.org
+  serverURL: https://waline.blog-zjp.cn.eu.org/
   bg: # waline background
-  pageview: false
+  pageview: true
   option:
 
 # utterances
