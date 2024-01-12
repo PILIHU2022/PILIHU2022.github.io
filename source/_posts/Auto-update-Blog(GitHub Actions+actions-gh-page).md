@@ -1,6 +1,6 @@
 ---
 title: 实现自动更新Blog(actions-gh-page)
-date: 2023-08-15 13:18:20
+date: 2024-01-12 22:47:52
 tags: Blog
 ---
 # 简介
@@ -57,6 +57,64 @@ A:请检查你的GitHub Pages设置（位置在Settings > Pages）中的“Build
 > ```yaml
 > yarn deploy
 > ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
