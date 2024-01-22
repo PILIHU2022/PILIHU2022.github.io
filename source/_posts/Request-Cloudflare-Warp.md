@@ -37,7 +37,7 @@ https://pilihu2023-my.sharepoint.com/:f:/g/personal/pilihu_pilihu2023_onmicrosof
 8. 打开[Cloudflare官网](https://www.cloudflare-cn.com/)重新登录，再打开Zero Trust就可以进入了
 9. 侧边栏选择‘My Team’
 - ~~不出意外的话应该会出意外~~，会没有提示添加设备，不要慌张，点击‘My Team’ -> ‘List’，再回到刚刚的页面，即可看见
-![Cloudflare Zero Trust连接客户端](https://s1.imagehub.cc/images/2024/01/17/79ae12aeae61a4d7541db018dd92130f.png)](https://www.imagehub.cc/image/1Q3fkS)
+![Cloudflare Zero Trust连接客户端](https://s1.imagehub.cc/images/2024/01/17/79ae12aeae61a4d7541db018dd92130f.png)]
 10. 点击‘connect a device’
 11. 点击‘create a device enrollment policy’
 12. 在输入框中输入邮箱地址后缀，如‘@qq.com’等
