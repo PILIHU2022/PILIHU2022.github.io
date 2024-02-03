@@ -19,5 +19,5 @@ Eu.org提供了域名（被Cloudflare认为顶域，可绑定）
 若无可以看看垃圾箱，点击链接即可验证
 ## 登录账号
 打开[官网](https://nic.eu.org)
-![nic.eu.org主界面.png](https://s1.imagehub.cc/images/2024/01/22/7989f91978f8e9a32920ed100f90d3f1.png)]
+![nic.eu.org主界面.png](https://s1.imagehub.cc/images/2024/01/22/7989f91978f8e9a32920ed100f90d3f1.png)
 在‘Sign-in or sign-up here!’点击‘here’来登录，
