@@ -3,7 +3,8 @@
 # --------------------------------------
 
 nav:
-  logo: https://s1.imagehub.cc/images/2024/02/03/108715285923ea1d2e65b1a6963a81f2.th.jpeg
+  # logo: https://s1.imagehub.cc/images/2024/02/03/108715285923ea1d2e65b1a6963a81f2.th.jpeg
+  logo: 
   display_title: true
   fixed: false # fixed navigation bar
 
