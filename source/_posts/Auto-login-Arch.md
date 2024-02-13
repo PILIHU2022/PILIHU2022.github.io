@@ -10,8 +10,7 @@ categories: Arch Linux
 
 # 本教程具有一定的时限性，具体操作以Arch Wiki为准！
 
-# 参考Arch Wiki:
-[Getty](https://wiki.archlinuxcn.org/wiki/Getty)
+# 参考Arch Wiki:[Getty](https://wiki.archlinuxcn.org/wiki/Getty)
 
 # 开始操作
 ```
