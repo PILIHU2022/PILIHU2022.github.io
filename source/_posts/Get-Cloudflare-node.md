@@ -38,7 +38,7 @@ wget -N -P Warp2Clash https://raw.githubusercontent.com/cmliu/Warp2Clash/main/W2
 ```
 ./W2C_start.sh {PrivateKey} {PublicKey} {IPv6}
 ```
-<mark>注意：这个{IPv6}是必须要有的，否则将不会生成clash订阅文件！</mark>
+<!-- <mark>注意：这个{IPv6}是必须要有的，否则将不会生成clash订阅文件！</mark> -->
 ### 获取`PrivateKey`和`PublicKey`
 #### 首先打开[提取工具](https://replit.com/@misaka-blog/wgcf-profile-generator)，然后按照提示填写，Zero Trust用户选择“3”，然后访问网站并且将token复制到控制台回车，然后等待即可获取到`PrivateKey`和`PublicKey`，保留备用
 #### 优选IP，将[优选IP脚本](https://gitlab.com/Misaka-blog/warp-script/)下载下来：
