@@ -5,11 +5,12 @@
 # Site
 title: PILIHU's Blog 
 subtitle: ''
-description: ''
-keywords: Blog 
-author: PILIHU 
+description: '一个使用Arch Linux的中学生的Blog'
+keywords: Blog
+author: PILIHU
 language: zh-CN
 timezone: 'Asia/Shanghai'
+email: 2812167783@qq.com
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -97,8 +98,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: fluid
-theme: butterfly
+theme: fluid
+# theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
