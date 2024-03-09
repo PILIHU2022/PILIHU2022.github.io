@@ -18,12 +18,12 @@
 #
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /img/fluid.png
+favicon: /linux.png
 # favicon: 'https://www.flaticon.com/free-icons/linux'
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /img/fluid.png
+apple_touch_icon: /img/linux.png
 
 # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -241,7 +241,7 @@ custom_css:
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:  # 网页访问统计
-  enable: false
+  enable: true
 
   # 遵循访客浏览器"请勿追踪"的设置，如果开启则不统计其访问
   # Follow the "Do Not Track" setting of the visitor's browser
@@ -251,7 +251,7 @@ web_analytics:  # 网页访问统计
   # 百度统计的 Key，值需要获取下方链接中 `hm.js?` 后边的字符串
   # Baidu analytics, get the string behind `hm.js?`
   # See: https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376
-  baidu:
+  baidu: be8105b10fb0560f4569fc0266111a06
 
   # Google Analytics 4 的媒体资源 ID
   # Google Analytics 4 MEASUREMENT_ID
@@ -263,7 +263,7 @@ web_analytics:  # 网页访问统计
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage
   tencent:
-    sid:
+    sids
     cid:
 
   # 51.la 站点统计 ID
@@ -529,7 +529,40 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: ./source/img/my-blog-top-image{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}.jpg
+  banner_img: 
+    - /source/img/my-blog-top-image.jpg
+    - /source/img/my-blog-top-image1.jpg
+    - /source/img/my-blog-top-image2.jpg
+    - /source/img/my-blog-top-image3.jpg
+    - /source/img/my-blog-top-image4.jpg
+    - /source/img/my-blog-top-image5.jpg
+    - /source/img/my-blog-top-image6.jpg
+    - /source/img/my-blog-top-image7.jpg
+    - /source/img/my-blog-top-image8.jpg
+    - /source/img/my-blog-top-image9.jpg
+    - /source/img/my-blog-top-image10.jpg
+    - /source/img/my-blog-top-image11.jpg
+    - /source/img/my-blog-top-image12.jpg
+    - /source/img/my-blog-top-image13.jpg
+    - /source/img/my-blog-top-image14.jpg
+    - /source/img/my-blog-top-image15.jpg
+    - /source/img/my-blog-top-image16.jpg
+    - /source/img/my-blog-top-image17.jpg
+    - /source/img/my-blog-top-image18.jpg
+    - /source/img/my-blog-top-image19.jpg
+    - /source/img/my-blog-top-image20.jpg
+    - /source/img/my-blog-top-image21.jpg
+    - /source/img/my-blog-top-image22.jpg
+    - /source/img/my-blog-top-image23.jpg
+    - /source/img/my-blog-top-image24.jpg
+    - /source/img/my-blog-top-image25.jpg
+    - /source/img/my-blog-top-image26.jpg
+    - /source/img/my-blog-top-image27.jpg
+    - /source/img/my-blog-top-image28.jpg
+    - /source/img/my-blog-top-image29.jpg
+    - /source/img/my-blog-top-image30.jpg
+    - /source/img/my-blog-top-image31.jpg
+
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -953,15 +986,15 @@ about:
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
-  avatar: /img/avatar.png
-  name: "Fluid"
-  intro: "An elegant theme for Hexo"
+  avatar: /source/img/my-avatar.jpg
+  name: "PILIHU"
+  intro: "一名使用Arch Linux的中学生"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com", tip: "GitHub" }
-    - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+    - { class: "iconfont icon-github-fill", link: "https://github.com/PILIHU2022", tip: "GitHub" }
+    - { class: "iconfont icon-bilibili-fill", link: "https://space.bilibili.com/518016704", tip: "Bilibili" }
+    - { class: "iconfont icon-qq-fill", link: 'https://qm.qq.com/cgi-bin/qm/qr?k=TG8iqcGOahP2g3xRj81mwwvWAg-QPZPP&noverify=0', tip: 'QQ' }
 
 
 #---------------------------
@@ -983,7 +1016,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /source/img/404.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
   # 重定向到首页的延迟(毫秒)
