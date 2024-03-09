@@ -12,7 +12,9 @@ categories: Arch Linux
 [AMDGPU](https://wiki.archlinuxcn.org/wiki/AMDGPU)
 [ATI](https://wiki.archlinuxcn.org/wiki/ATI)
 [Arch简明指南-Arch显卡驱动](https://arch.icekylin.online/guide/rookie/graphic-driver.html#%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1)（不推荐！可能更新不及时，不过你可以参考一下那里的查看显卡架构小结）
-<font color='red' size=10 center><mark>Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！</mark></font>
+{% note WARNING %}
+Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！
+{% endnote %}
 # 安装
 如果你碰巧与我使用的显卡是一样的，~~很好，你仍可能需要参照Wiki~~
 <mark>此处以AMD Radeon RX 6500 XT为例，安装AMDGPU驱动，ATI驱动请自行Google和参照Arch Wiki</mark>
