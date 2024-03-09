@@ -262,9 +262,9 @@ web_analytics:  # 网页访问统计
   # 腾讯统计的 H5 App ID，开启高级功能才有cid
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage
-  tencent:
-    sid:
-    cid:
+  # tencent:
+  #   sid:
+  #   cid:
 
   # 51.la 站点统计 ID
   # 51.la analytics
