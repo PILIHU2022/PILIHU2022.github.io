@@ -1,7 +1,7 @@
 ---
 title: 从LX-Music转移到网易云音乐
 date: 2024-01-22 20:15:29
-description: 本文为记录我从LX-Music转移到网易云音乐的过程及一些总结
+excerpt: 本文为记录我从LX-Music转移到网易云音乐的过程及一些总结
 tags: Other
 ---
 # 将歌单转移到网易云
