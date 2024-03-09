@@ -263,7 +263,7 @@ web_analytics:  # 网页访问统计
   # Tencent analytics, set APP ID
   # See: https://mta.qq.com/h5/manage/ctr_app_manage
   tencent:
-    sids
+    sid:
     cid:
 
   # 51.la 站点统计 ID
