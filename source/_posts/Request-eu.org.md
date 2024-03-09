@@ -5,7 +5,7 @@ tags: eu.org
 categories: 网站
 ---
 # <font color='red' size=10>该文章未完成！</font>
-{% note WARNING %}
+{% note warning %}
 Warning: 最近 nic.eu.org 网站出现问题，导致作者无法完成该文章，网站恢复后立即完成！
 {% endnote %}
 
