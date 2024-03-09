@@ -530,38 +530,38 @@ index:
 #---------------------------
 post:
   banner_img: 
-    - /source/img/my-blog-top-image.jpg
-    - /source/img/my-blog-top-image1.jpg
-    - /source/img/my-blog-top-image2.jpg
-    - /source/img/my-blog-top-image3.jpg
-    - /source/img/my-blog-top-image4.jpg
-    - /source/img/my-blog-top-image5.jpg
-    - /source/img/my-blog-top-image6.jpg
-    - /source/img/my-blog-top-image7.jpg
-    - /source/img/my-blog-top-image8.jpg
-    - /source/img/my-blog-top-image9.jpg
-    - /source/img/my-blog-top-image10.jpg
-    - /source/img/my-blog-top-image11.jpg
-    - /source/img/my-blog-top-image12.jpg
-    - /source/img/my-blog-top-image13.jpg
-    - /source/img/my-blog-top-image14.jpg
-    - /source/img/my-blog-top-image15.jpg
-    - /source/img/my-blog-top-image16.jpg
-    - /source/img/my-blog-top-image17.jpg
-    - /source/img/my-blog-top-image18.jpg
-    - /source/img/my-blog-top-image19.jpg
-    - /source/img/my-blog-top-image20.jpg
-    - /source/img/my-blog-top-image21.jpg
-    - /source/img/my-blog-top-image22.jpg
-    - /source/img/my-blog-top-image23.jpg
-    - /source/img/my-blog-top-image24.jpg
-    - /source/img/my-blog-top-image25.jpg
-    - /source/img/my-blog-top-image26.jpg
-    - /source/img/my-blog-top-image27.jpg
-    - /source/img/my-blog-top-image28.jpg
-    - /source/img/my-blog-top-image29.jpg
-    - /source/img/my-blog-top-image30.jpg
-    - /source/img/my-blog-top-image31.jpg
+    # - /source/img/my-blog-top-image.jpg
+    # - /source/img/my-blog-top-image1.jpg
+    # - /source/img/my-blog-top-image2.jpg
+    # - /source/img/my-blog-top-image3.jpg
+    # - /source/img/my-blog-top-image4.jpg
+    # - /source/img/my-blog-top-image5.jpg
+    # - /source/img/my-blog-top-image6.jpg
+    # - /source/img/my-blog-top-image7.jpg
+    # - /source/img/my-blog-top-image8.jpg
+    # - /source/img/my-blog-top-image9.jpg
+    # - /source/img/my-blog-top-image10.jpg
+    # - /source/img/my-blog-top-image11.jpg
+    # - /source/img/my-blog-top-image12.jpg
+    # - /source/img/my-blog-top-image13.jpg
+    # - /source/img/my-blog-top-image14.jpg
+    # - /source/img/my-blog-top-image15.jpg
+    # - /source/img/my-blog-top-image16.jpg
+    # - /source/img/my-blog-top-image17.jpg
+    # - /source/img/my-blog-top-image18.jpg
+    # - /source/img/my-blog-top-image19.jpg
+    # - /source/img/my-blog-top-image20.jpg
+    # - /source/img/my-blog-top-image21.jpg
+    # - /source/img/my-blog-top-image22.jpg
+    # - /source/img/my-blog-top-image23.jpg
+    # - /source/img/my-blog-top-image24.jpg
+    # - /source/img/my-blog-top-image25.jpg
+    # - /source/img/my-blog-top-image26.jpg
+    # - /source/img/my-blog-top-image27.jpg
+    # - /source/img/my-blog-top-image28.jpg
+    # - /source/img/my-blog-top-image29.jpg
+    # - /source/img/my-blog-top-image30.jpg
+    # - /source/img/my-blog-top-image31.jpg
 
   banner_img_height: 70
   banner_mask_alpha: 0.3
