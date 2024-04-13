@@ -266,7 +266,7 @@ aside:
       link: https://github.com/PILIHU2022
   card_announcement:
     enable: true
-    content: 这是我的Blog,我是学生,更新不定时,Waline评论系统暂不可用，正在研究，尝试切换Fluid主题ing
+    content: 这是我的Blog，我是学生，不定时更新，使用butterfly主题
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
