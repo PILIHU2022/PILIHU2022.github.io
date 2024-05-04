@@ -46,8 +46,8 @@ favicon: /img/favicon.png
 
 # Avatar (頭像)
 avatar:
-  # img: https://blog-zjp.cn.eu.org/img/My-avatar.jpg
-  img: /img/My-avatar.jpg
+  img: https://blog-zjp.cn.eu.org/img/My-avatar.jpg
+  # img: /img/My-avatar.jpg
   effect: false
 
 # Disable all banner image
