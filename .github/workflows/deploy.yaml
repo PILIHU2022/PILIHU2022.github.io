@@ -41,12 +41,12 @@ jobs:
         run: |
           export TZ='Asia/Shanghai'
           yarn build
-      - name: Tar
-        run: |
-          tar czvf website.tar.gz ./*
-          git add
-          git commit -m '1'
-          git push origin main
+      # - name: Tar
+      #   run: |
+      #     tar czvf website.tar.gz ./*
+      #     git add
+      #     git commit -m '1'
+      #     git push origin main
       - name: Deploy to My Github Pages
         run:
           hexo clean && hexo g && hexo d
