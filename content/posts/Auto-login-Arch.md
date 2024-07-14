@@ -1,7 +1,7 @@
 ---
 title: Arch Linux自动登录
 date: 2024-02-12 22:18:02 
-tags: Arch Linux
+tags: [ Arch Linux ]
 categories: Arch Linux
 ---
 # Arch Linux怎么自动登录，而且是免密的，应该会有一些人会这样想，毕竟如果用户名的密码过长，而且密码错以后又要重输，想必是让人血压升高的问题。今天，教程来了

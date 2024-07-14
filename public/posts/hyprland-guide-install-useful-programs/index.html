@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Hyprland指南(安装常用软件) | Welcome to my blog!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">
+  <meta property="og:site_name" content="Welcome to my blog!">
+  <meta property="og:title" content="Hyprland指南(安装常用软件)">
+  <meta property="og:description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-15T10:06:00+00:00">
+    <meta property="article:modified_time" content="2023-08-15T10:06:00+00:00">
+    <meta property="article:tag" content="Guides">
+    <meta property="article:tag" content="Hyprland">
+
+  <meta itemprop="name" content="Hyprland指南(安装常用软件)">
+  <meta itemprop="description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+  <meta itemprop="datePublished" content="2023-08-15T10:06:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-15T10:06:00+00:00">
+  <meta itemprop="wordCount" content="67">
+  <meta itemprop="keywords" content="Guides,Hyprland">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hyprland指南(安装常用软件)">
+  <meta name="twitter:description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Welcome to my blog!
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Hyprland指南(安装常用软件)</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-15T10:06:00Z">August 15, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="hyprland指南安装常用软件">Hyprland指南(安装常用软件)</h1>
+<h2 id="安装vscode">安装VScode</h2>
+<p>全称为Visual Studio Code<!-- raw HTML omitted -->AUR<!-- raw HTML omitted -->，由于名字太长所以被人们简化成VSC(吧？)<del>不用管这些，我们只是用这个来码代码(屎山)</del></p>
+<pre tabindex="0"><code>paru -S visual-studio-code-bin
+</code></pre><p>然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？
+如果嫌调字体麻烦的话可以来到<a href="https://github.com/PILIHU2022/My-Arch-configs">我的配置仓库</a>，在里面的settings(VSC).json中，有一个<code>//设置字体</code>，把里面的内容复制到你的VSC配置文件中，路径如下:
+<code>~/.config/code/User/</code>
+字体的话需要安装如下:(自己配置的话可跳过)</p>
+<pre tabindex="0"><code>paru -S ttf-cascadia-code nerd-fonts-completle 
+</code></pre><p>鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。
+<del>只记得要装这两个，还有些忘了</del>
+微软雅黑的话可以换成别的字体</p>
+<h3 id="剩下的就自己折腾吧">剩下的就自己折腾吧</h3>
+<h2 id="安装qq">安装QQ</h2>
+<p>这个可没有配置文件照抄了，直接执行：</p>
+<pre tabindex="0"><code>paru -S linuxqq
+</code></pre><p>安装即可，若出现闪退情况，请参阅
+<a href="https://aur.archlinux.org/packages/linuxqq">AUR-LinuxQQ评论区</a></p>
+<h2 id="markdown编辑软件">Markdown编辑软件</h2>
+<ul>
+<li>Typora
+<ul>
+<li>UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥</li>
+</ul>
+</li>
+<li>VNote
+<ul>
+<li>开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进</li>
+</ul>
+</li>
+<li>Marktext
+<ul>
+<li>在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试</li>
+</ul>
+</li>
+</ul>
+<h4 id="下面以安装vnote为例">下面以安装VNote为例：</h4>
+<pre tabindex="0"><code>paru -S vnote-appimage
+</code></pre><p>在AUR中有一个包名叫做<code>vnote</code>的,我试过,无法使用中文输入,所以使用<code>vnote-appimage</code></p>
+<h4 id="安装typora">安装Typora</h4>
+<pre tabindex="0"><code>sudo pacman -S Typora
+</code></pre><p><del>当然,这是有米的人的操作</del></p>
+<h5 id="想使用破解版的可以添加zzy-ac源有米的人可以跳过">想使用破解版的可以添加zzy-ac源(<del>有米的人可以跳过</del>)</h5>
+<p>在/etc/pacman.conf中添加:
+`
+[zzy-ac]
+SigLevel=Never</p>
+<p>Server = <a href="https://github.com/zzy-ac/repo/releases/download/x86_64/">https://github.com/zzy-ac/repo/releases/download/x86_64/</a></p>
+<p>Server = <a href="https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64">https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64</a>
+`
+安装Typora</p>
+<pre tabindex="0"><code>sudo pacman -S zzy-ac/typora-electron-crack
+</code></pre><h1 id="all-done-enjoy-it">All done! Enjoy it!</h1>
+<h1 id="writerpilihu">Writer:PILIHU</h1>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/guides/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Guides</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/hyprland/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Hyprland</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/hyprland-guide-install/">Hyprland指南(安装)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/hyprland-guide-install-other-programs/">Hyprland指南(安装其他软件)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/how-to-install-archbiosxiaoice/">Arch Linux安装教程(以Legacy BIOS为例)</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  Welcome to my blog! 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

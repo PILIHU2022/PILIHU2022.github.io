@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clash on Welcome to my blog!</title>
+    <link>http://localhost:1313/tags/clash/</link>
+    <description>Recent content in Clash on Welcome to my blog!</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 18 Jan 2024 17:46:58 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/clash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Clash-Meta及所遇到的问题</title>
+      <link>http://localhost:1313/posts/use-clash-meta/</link>
+      <pubDate>Thu, 18 Jan 2024 17:46:58 +0000</pubDate>
+      <guid>http://localhost:1313/posts/use-clash-meta/</guid>
+      <description>clash-meta是一个clash的内核分支，它支持WireGuard协议，所以我选择他（ 安装clash-meta 使用该操作你需要使用Arch LinuxCN源&#xA;sudo pacman -S clash-meta 使用 首先到/etc/clash-meta中，你应该会看见以下文件： /etc/clash-meta</description>
+    </item>
+  </channel>
+</rss>

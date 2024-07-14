@@ -1,4 +1,8 @@
 baseURL = 'https://pilihu.us.kg/'
 languageCode = 'zh-cn'
-title = 'Welcome to my Blog!'
-theme = 'hugo-theme-stack'
+title = 'Welcome to my blog!'
+theme = 'ananke'
+# theme = 'paper'
+[taxonomies]
+  category = 'category'
+  tag = 'tags'

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Welcome to my blog!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Welcome to my blog!" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Welcome to my blog!" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="Welcome to my blog!">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="datePublished" content="2024-02-12T22:18:02+00:00">
+  <meta itemprop="dateModified" content="2024-02-12T22:18:02+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Welcome to my blog!
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/auto-login-arch/" class="link black dim">
+        Arch Linux自动登录
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Arch Linux怎么自动登录，而且是免密的，应该会有一些人会这样想，毕竟如果用户名的密码过长，而且密码错以后又要重输，想必是让人血压升高的问题。今天，教程来了 当然免密登录也会出现一些安全问题 本教程具有一定的时限性，具体操作以Arch Wiki为准！ 参考Arch Wiki:Getty 开始操作 sudo pacman -S util-linux 若已安装可不用重新安装
+写入一个systemd服务文件: sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf 若没有getty@1.service.d文件夹，请创建: sudo mkdir /etc/systemd/system/getty@tty1.service.d 将以下代码写入/etc/systemd/system/getty@tty1.service.d/override.conf中:
+[Service] ExecStart= ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM 注:这里的username要更改为你的用户名,不能照抄别问我是怎么知道的
+若你不知道你的用户名，请使用以下命令来查看
+whoami 启动该服务 sudo systemctl enable getty@tty1 抢救方法(如果没有照抄上面的代码,可以不看) 我们先解析一下服务文件名,从&quot;getty@tty1&quot;中，我们得知这个服务是针对tty1的，对其他tty不受影响(如tty2)
+切换到其他tty 按住Ctrl+shift+&lt;F2&gt;切换到tty2，然后登录用户，修改刚刚的配置文件
+sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf 然后将username改为你的用户名
+来看看作者是怎么修的 重启进入liveCD，挂载Arch Linux所在的硬盘，然后修改配置文件
+sudo vim /mnt/etc/systemd/system/getty@tty1.service.d/override.conf 将username修改为我的用户名，重启
+    </div>
+    <a href="/posts/auto-login-arch/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/get-cloudflare-node/" class="link black dim">
+        提取Cloudflare Zero Trust节点
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      本文记录作者提取Cloudflare Zero Trust的节点的过程以及所用的工具 开始 首先需要你有一个Cloudflare账号，并且有Zero Trust，没有可以看这篇文章
+开始操作 首先介绍一下作者的设备： OS:Arch Linux 内核:linux-zen6.7.3 Clash-meta 1.18.1-2 由于Cloudflare Zero Trust是使用WireGuard协议，所以我们需要使用一个支持WireGuard协议的客户端，可以更换为其他的
+本文以Arch Linux为例
+首先 介绍一下作者提取节点时所用到的工具：
+Warp2Clash by CMLiussss 优选IP脚本 by MisakaNo 提取PrivateKey和PublicKey的工具 by MisakaNo(WGCF)
+或 提取PrivateKey和PublicKey的工具 by MisakaNo(Warp-go) 开始操作 首先你需要提取出来你的Zero Trust的PrivateKey和PublicKey，没有的话可以看这里
+将Warp2Clash脚本下载下来：
+wget -N -P Warp2Clash https://raw.githubusercontent.com/cmliu/Warp2Clash/main/W2C_start.sh &amp;&amp; cd Warp2Clash &amp;&amp; chmod +x W2C_start.sh 若你有WARP账户许可证密钥，可以使用以下命令： ./W2C_start.sh {WARP账户许可证密钥} 如果你有PrivateKey和PublicKey的话可以使用以下命令： ./W2C_start.sh {PrivateKey} {PublicKey} {IPv6} 获取PrivateKey和PublicKey 首先打开提取工具，然后按照提示填写，Zero Trust用户选择“3”，然后访问网站并且将token复制到控制台回车，然后等待即可获取到PrivateKey和PublicKey，保留备用 优选IP，将优选IP脚本下载下来： wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip.sh 然后为脚本添加运行权限：
+chmod +x ./warp-yxip.sh 然后执行脚本：
+./warp-yxip.sh 在菜单中输入2并且回车，等待执行结果出来以后将列表中的第一个中&quot;[]&ldquo;中的IP地址即可
+    </div>
+    <a href="/posts/get-cloudflare-node/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-amd-graphics-on-arch/" class="link black dim">
+        在Arch Linux上安装AMD显卡驱动
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      设备: 显卡：AMD Radeon RX 6500 XT 参照Wiki 如果动手能力及理解能力比较好的话可以参考ArchWiki： AMDGPU ATI Arch简明指南-Arch显卡驱动（不推荐！可能更新不及时，不过你可以参考一下那里的查看显卡架构小结） {% note warning %} Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！ {% endnote %}
+安装 如果你碰巧与我使用的显卡是一样的，很好，你仍可能需要参照Wiki 此处以AMD Radeon RX 6500 XT为例，安装AMDGPU驱动，ATI驱动请自行Google和参照Arch Wiki 首先需要安装mesa包，使用以下命令：
+sudo pacman -S mesa lib32-mesa # lib32-mesa是对于32位程序，需要开启multilib 添加DDX驱动支持：
+sudo pacman -S xf86-video-amdgpu 在Wiki上所提到的其他软件，可以按需求安装，但是安装后的llvm和llvm-libs是没有-git结尾，否则，请重新安装llvm和llvm-libs：
+sudo pacman -S llvm llvm-libs 如果遇到有包依赖，请卸载掉(因为这些包大概都可能是以-git)结尾的，安装好llvm和llvm-libs后再安装回刚刚卸载的包(应该是没有-git结尾的)
+以下是我求助的图片及帖文 帖文
+电报中文群组1-图床 电报中文群组2-图床
+电报中文群组1-OneDrive 电报中文群组2-OneDrive
+    </div>
+    <a href="/posts/install-amd-graphics-on-arch/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/move-to-netease-cloud-music/" class="link black dim">
+        从LX-Music转移到网易云音乐
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      将歌单转移到网易云 LX的备份文件虽然具有歌曲名等信息，可以以打开压缩包的形式打开备份文件，但是这并没有什么用，没办法导入到网易云。 只能用最愚蠢的方法：一个一个搜索歌曲名； 缺点不用多说：
+效率低下； 累人 方法2：使用网易云自带的识别但很鸡肋 在经过作者不懈地努力后，终于将我Lx-music中的歌曲转移到了网易云歌单 推广（网易云活动，推荐看完）： 网易云推出了一个活动，为“免费听歌”，可在侧滑栏看到，看些广告就可以获得近4小时的免费听歌时间
+要求： 貌似现在没有要求了 非VIP用户吧？
+The end 
+    </div>
+    <a href="/posts/move-to-netease-cloud-music/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/request-eu.org/" class="link black dim">
+        注册eu.org域名及其他
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      该文章未完成！ {% note warning %} Warning: 最近 nic.eu.org 网站出现问题，导致作者无法完成该文章，网站恢复后立即完成！ {% endnote %}
+介绍 Eu.org名称如此，但是它与欧盟没有任何关系 Eu.org提供了域名（被Cloudflare认为顶域，可绑定）
+开始申请 注册账户 注册账户需要一个真实邮箱，用于验证，可用QQ邮箱 信息可随便填写，手机号不用验证。
+验证用户 打开邮箱的收件箱，看见一个名为‘noreply@nic.eu.org’ 若无可以看看垃圾箱，点击链接即可验证
+登录账号 打开官网 在‘Sign-in or sign-up here!’点击‘here’来登录，
+    </div>
+    <a href="/posts/request-eu.org/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/use-clash-meta/" class="link black dim">
+        使用Clash-Meta及所遇到的问题
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      clash-meta是一个clash的内核分支，它支持WireGuard协议，所以我选择他（ 安装clash-meta 使用该操作你需要使用Arch LinuxCN源
+sudo pacman -S clash-meta 使用 首先到/etc/clash-meta中，你应该会看见以下文件： /etc/clash-meta
+    </div>
+    <a href="/posts/use-clash-meta/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/request-cloudflare-warp/" class="link black dim">
+        免信用卡申请Cloudflare Zero Trust
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      客户端们 Android：Cloudflare One Agent Windows；macOS；Linux等见官网 官方说明了在iOS和Android下使用Zero Trust的必须切换为Cloudflare One Agent，而Windows；macOS；Linux则不需要操作：
+macOS, Windows, and Linux No action is required for desktop clients at this time. The existing Cloudflare WARP client will continue to support both Zero Trust and 1.1.1.1 functionality. ​​iOS and Android Zero Trust users must migrate from the 1.1.1.1 app to the Cloudflare One Agent app by 2023-12-31. Organizations can migrate their teams with minimal disruption in one of two modes: manually or via a managed endpoint solution.
+    </div>
+    <a href="/posts/request-cloudflare-warp/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/auto-update-bloggithub-actions&#43;hexo-deploy/" class="link black dim">
+        实现自动更新Blog(GitHub Actions&#43;Hexo deploy)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      坑已挖，等待填补 To be complete 
+    </div>
+    <a href="/posts/auto-update-bloggithub-actions&#43;hexo-deploy/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/auto-update-bloggithub-actions&#43;actions-gh-page/" class="link black dim">
+        实现自动更新Blog(actions-gh-page)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      简介 群友“竹林里有冰”的Blog有一个部署方案，如下： 我的博客部署方案
+开始码GitHub Actions代码 如果不想写的话可以借鉴： 1 PILIHU2022.github.io/Actions 2 竹林里有冰的代码
+安装Node.js 由于GitHub Actions没法使用Ubuntu的apt包管，所以只能使用actions/nodejs，使用@来指定版本，我这里指定的是version 3中的Node.js 21版本，代码中的actions/checkout只用于切换到该仓库;
+安装相关依赖 你需要将你本地仓库中的package.json添加到GitHub仓库中，代码中是这样的:
+- name: Install Dependencies run: npm install; # 分号不可省略，否则将会被识别成一条命令 npm update # 更新安装的软件（Hexo等） 为每个文件重新设定最后修改时间 这一步其实是挺重要的，Hexo框架生成每篇文章的最后修改时间的依据是该文件的最后修改时间，而对于 Github Action 的容器来说，每一个文件都刚刚被下载下来，都是最新的，这就会导致你的每一篇文章每次部署时都会被认为刚才修改过。 我们这边可以直接使用 git 记录的时间来作为文件的最后修改时间。
+设置时区 Blog基本都是用来给自己看的 所以时区当然要设置成中国标准时间（东八区） 使用
+export = TZ=&#39;Asia/Shanghai&#39; 生成网页 yarn build 如果不需要部署到VPS的到此处就可以了
+以下是使用GitHub Pages来更新Blog（该段未完成） 若想部署到VPS，参考部署到VPS
+Q:为什么我已经将GitHub Actions搞定了，且将博文上传至GitHub仓库了，但是没有更新，GitHub Actions也没有报错 A:请检查你的GitHub Pages设置（位置在Settings &gt; Pages）中的“Build and deployment”，在source中选择Deploy from a branch
+将Blog部署到VPS 我懒得写，而且没有VPS，所以就直接引用竹林里有冰的内容 初始化 Github Action 容器上的 ssh 私钥应当在 Github 仓库的设置里先新建一个 secret，填入自己的 ssh 私钥（更加标准的做法应当是为 github action 专门生成一对 ssh 密钥，将公钥上传到自己的 vps，将私钥上传到 Github 仓库的 secret 中）。 我这边直接从点墨阁那边抄了点代码直接用。 使用 hexo 的 deploy 插件调用 rsync 将静态文件上传到自己服务器的对应目录（static server 你应当已经设置好了）
+    </div>
+    <a href="/posts/auto-update-bloggithub-actions&#43;actions-gh-page/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/happy-new-year-2024/" class="link black dim">
+        新年快乐！
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Happy New Year! 本Blog在此祝大家新年快乐！ 再见2023，你好2024！ Goodbye 2023,Hello2024! 
+    </div>
+    <a href="/posts/happy-new-year-2024/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  Welcome to my blog! 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
