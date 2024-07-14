@@ -1,59 +1,12 @@
-<!doctype html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready lg:text-base"
-  style="--bg: #faf8f1"
-  lang="zh-cn"
->
+<!DOCTYPE html>
+<html lang="zh-cn">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
-  <title>Hyprland指南(安装常用软件) - Welcome to my blog!</title>
-
-  
-  <meta name="theme-color" />
-
-  
-  
-  
-  
-  <meta name="description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Hyprland指南(安装常用软件) | Welcome to my blog!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
 paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
 paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
 剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
@@ -63,159 +16,158 @@ Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，�
 想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
 Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
 Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
-sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU " />
-  <meta name="author" content="Welcome to my blog!" />
-  
-
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
-
-  
-  
-  
-  
-  
-  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-  <script
-    defer
-    src="http://localhost:1313/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
-
-  
-  
-  
-
-  
-  <link rel="icon" href="http://localhost:1313/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.128.2">
-
-  
-  
-  
-</head>
-
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="http://localhost:1313/"
-      >Welcome to my blog!</a
-    >
-    <div
-      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
-  </div>
-
-  <div
-    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-    role="button"
-    aria-label="Menu"
-  ></div>
-
-  
-
-  <script>
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+    <meta name="generator" content="Hugo 0.128.2">
     
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
-
     
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
-
     
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#faf8f1'.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
-
     
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
-    
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
+      <meta name="robots" content="noindex, nofollow">
     
     
 
     
-  </div>
-</header>
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
-    >
+
+    
+
+    
       
 
-<article>
-  <header class="mb-16">
-    <h1 class="!my-0 pb-2.5">Hyprland指南(安装常用软件)</h1>
+    
 
     
-    <div class="text-sm antialiased opacity-60">
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">
+  <meta property="og:site_name" content="Welcome to my blog!">
+  <meta property="og:title" content="Hyprland指南(安装常用软件)">
+  <meta property="og:description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-15T10:06:00+00:00">
+    <meta property="article:modified_time" content="2023-08-15T10:06:00+00:00">
+    <meta property="article:tag" content="Guides">
+    <meta property="article:tag" content="Hyprland">
+
+  <meta itemprop="name" content="Hyprland指南(安装常用软件)">
+  <meta itemprop="description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+  <meta itemprop="datePublished" content="2023-08-15T10:06:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-15T10:06:00+00:00">
+  <meta itemprop="wordCount" content="67">
+  <meta itemprop="keywords" content="Guides,Hyprland">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hyprland指南(安装常用软件)">
+  <meta name="twitter:description" content="Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU ">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
       
-      <time>Aug 15, 2023</time>
+        Welcome to my blog!
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
       
       
-      
-      
+<div class="ananke-socials">
+  
+</div>
+
     </div>
-    
+  </div>
+</nav>
+
+    </div>
   </header>
 
-  <section><h1 id="hyprland指南安装常用软件">Hyprland指南(安装常用软件)</h1>
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Hyprland指南(安装常用软件)</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-15T10:06:00Z">August 15, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="hyprland指南安装常用软件">Hyprland指南(安装常用软件)</h1>
 <h2 id="安装vscode">安装VScode</h2>
 <p>全称为Visual Studio Code<!-- raw HTML omitted -->AUR<!-- raw HTML omitted -->，由于名字太长所以被人们简化成VSC(吧？)<del>不用管这些，我们只是用这个来码代码(屎山)</del></p>
 <pre tabindex="0"><code>paru -S visual-studio-code-bin
@@ -269,82 +221,63 @@ SigLevel=Never</p>
 <pre tabindex="0"><code>sudo pacman -S zzy-ac/typora-electron-crack
 </code></pre><h1 id="all-done-enjoy-it">All done! Enjoy it!</h1>
 <h1 id="writerpilihu">Writer:PILIHU</h1>
-</section>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/guides/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Guides</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/hyprland/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Hyprland</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
 
-  
-  
-  <footer class="mt-12 flex flex-wrap">
-     
-    <a
-      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="http://localhost:1313/tags/guides"
-      >Guides</a
-    >
-     
-    <a
-      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
-      href="http://localhost:1313/tags/hyprland"
-      >Hyprland</a
-    >
-    
-  </footer>
-  
-
-  
-  
-  
-  
-  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
-    
-    <a
-      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="http://localhost:1313/posts/how-to-install-archbios/"
-      ><span class="mr-1.5">←</span><span>Arch Linux安装教程(BIOS)</span></a
-    >
-    
-    
-    <a
-      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="http://localhost:1313/posts/hyprland-guide-install/"
-      ><span>Hyprland指南(安装)</span><span class="ml-1.5">→</span></a
-    >
-    
-  </nav>
-  
-  
-
-  
-  
-
-  
-  
-
-  
+    <aside class="w-30-l mt6-l">
 
 
-  
-</article>
 
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/hyprland-guide-install/">Hyprland指南(安装)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/hyprland-guide-install-other-programs/">Hyprland指南(安装其他软件)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/how-to-install-archbiosxiaoice/">Arch Linux安装教程(以Legacy BIOS为例)</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
 
     </main>
-
-    <footer
-  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="http://localhost:1313/">Welcome to my blog!</a>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  Welcome to my blog! 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
   </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >✎ Paper</a
-  >
 </footer>
 
   </body>

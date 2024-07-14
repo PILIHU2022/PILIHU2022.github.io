@@ -1,292 +1,237 @@
-<!doctype html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html
-  class="not-ready lg:text-base"
-  style="--bg: #faf8f1"
-  lang="zh-cn"
->
+<!DOCTYPE html>
+<html lang="zh-cn">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-  />
-
-  
-  <title>Guides - Welcome to my blog!</title>
-
-  
-  <meta name="theme-color" />
-
-  
-  
-  
-  
-  
-  <meta
-    name="description"
-    content="A personal blog"
-  />
-  <meta name="author" content="Welcome to my blog!" />
-  
-
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
-
-  
-  
-  
-  
-  
-  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
-
-  
-  
-  
-  
-  
-
-  
-  
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  <link rel="icon" href="http://localhost:1313/favicon.ico" />
-  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.128.2">
-
-  
-  
-  
-</head>
-
-  <body class="text-black duration-200 ease-out dark:text-white">
-    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
-  <div class="relative z-50 mr-auto flex items-center">
-    <a
-      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
-      href="http://localhost:1313/"
-      >Welcome to my blog!</a
-    >
-    <div
-      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
-      role="button"
-      aria-label="Dark"
-    ></div>
-  </div>
-
-  <div
-    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
-    role="button"
-    aria-label="Menu"
-  ></div>
-
-  
-
-  <script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    const htmlClass = document.documentElement.classList;
-    setTimeout(() => {
-      htmlClass.remove('not-ready');
-    }, 10);
-
+    <title>Welcome to my blog!</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.128.2">
     
-    const btnMenu = document.querySelector('.btn-menu');
-    btnMenu.addEventListener('click', () => {
-      htmlClass.toggle('open');
-    });
-
     
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = '#faf8f1'.replace(/"/g, '');
-    const setDark = (isDark) => {
-      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
-      htmlClass[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark);
-    };
-
     
-    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    if (htmlClass.contains('dark')) {
-      setDark(true);
-    } else {
-      const darkVal = localStorage.getItem('dark');
-      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
-    }
-
     
-    darkScheme.addEventListener('change', (event) => {
-      setDark(event.matches);
-    });
-
-    
-    const btnDark = document.querySelector('.btn-dark');
-    btnDark.addEventListener('click', () => {
-      setDark(localStorage.getItem('dark') !== 'true');
-    });
-  </script>
-
-  <div
-    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
-  >
+      <meta name="robots" content="noindex, nofollow">
     
     
 
     
-  </div>
-</header>
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
-    <main
-      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
-    >
+
+    
+
+    
       
 
+    
 
+    
+    
+      <link href="/tags/guides/index.xml" rel="alternate" type="application/rss+xml" title="Welcome to my blog!" />
+      <link href="/tags/guides/index.xml" rel="feed" type="application/rss+xml" title="Welcome to my blog!" />
+      
+    
 
-<h1 class="mb-16">#Guides</h1>
+    
+      <link rel="canonical" href="http://localhost:1313/tags/guides/">
+    
 
+    <meta property="og:url" content="http://localhost:1313/tags/guides/">
+  <meta property="og:site_name" content="Welcome to my blog!">
+  <meta property="og:title" content="Guides">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
 
+  <meta itemprop="name" content="Guides">
+  <meta itemprop="datePublished" content="2023-08-15T13:18:20+00:00">
+  <meta itemprop="dateModified" content="2023-08-15T13:18:20+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Guides">
 
+	
+  </head>
 
+  <body class="ma0 avenir bg-near-white">
 
+    
 
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Welcome to my blog!
+      
+    </a>
+    <div class="flex-l items-center">
+      
 
- 
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
+      
+      
+<div class="ananke-socials">
   
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Arch Linux安装教程(BIOS)</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 15, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://localhost:1313/posts/how-to-install-archbios/">Arch Linux安装教程(BIOS)</a>
-</section>
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Guides
+        </h1>
+        
+      </div>
+    </div>
+  </header>
 
 
+    <main class="pb7" role="main">
+      
+  <article class="cf pa3 pa4-m pa4-l">
+    <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links mid-gray">
+      <p>Below you will find pages that utilize the taxonomy term “Guides”</p>
+    </div>
+  </article>
+  <div class="mw8 center">
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-install-archbios/" class="link black dim">
+        Arch Linux安装教程(BIOS)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: archinstall 详见Wiki
+连接网络 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。
+用 ping 检查网络连接：
+    </div>
+    <a href="/posts/how-to-install-archbios/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
 
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/hyprland-guide-install-useful-programs/" class="link black dim">
+        Hyprland指南(安装常用软件)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
+paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
+paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体
+剩下的就自己折腾吧 安装QQ 这个可没有配置文件照抄了，直接执行：
+paru -S linuxqq 安装即可，若出现闪退情况，请参阅 AUR-LinuxQQ评论区
+Markdown编辑软件 Typora UI可以，可以实时预览，支持快捷键，但是不支持修改快捷键，Markdown的功能基本都有，就是要￥ VNote 开源，不可以实时预览，支持快捷键，支持修改快捷键，有能力的甚至可以自定义主题以及样式，有待改进 Marktext 在Windows上用过，不过是20年的事，不知道现在咋样了，听说可以实时预览了，有兴趣的可以试试 下面以安装VNote为例： paru -S vnote-appimage 在AUR中有一个包名叫做vnote的,我试过,无法使用中文输入,所以使用vnote-appimage
+安装Typora sudo pacman -S Typora 当然,这是有米的人的操作
+想使用破解版的可以添加zzy-ac源(有米的人可以跳过) 在/etc/pacman.conf中添加: ` [zzy-ac] SigLevel=Never
+Server = https://github.com/zzy-ac/repo/releases/download/x86_64/
+Server = https://gh.dmnb.cf/https://github.com/zzy-ac/repo/releases/download/x86_64 ` 安装Typora
+sudo pacman -S zzy-ac/typora-electron-crack All done! Enjoy it! Writer:PILIHU 
+    </div>
+    <a href="/posts/hyprland-guide-install-useful-programs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
 
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/hyprland-guide-install/" class="link black dim">
+        Hyprland指南(安装)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      这是我安装Hyprland的设备 OS:Arch Linux WM:Hyprland 安装 Hyprland paru -S hyprland-nvidia-git 这里建议使用 git 版本，否则本仓库的配置文件中会有参数不可用，我就是这样改了半天的配置:(
+安装好了 Hyprland 之后，我们还需要安装一些软件，这对运行其他软件很有用 paru -S cava kitty xdg-desktop-portal-hyprland-git qt5-base qt5-wayland qt6-base qt6-wayland 启动Hyprland Hyprland
+All done! Enjoy it! Writer:PILIHU2022 
+    </div>
+    <a href="/posts/hyprland-guide-install/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
 
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Hyprland指南(安装常用软件)</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 15, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://localhost:1313/posts/hyprland-guide-install-useful-programs/">Hyprland指南(安装常用软件)</a>
-</section>
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/hyprland-guide-install-other-programs/" class="link black dim">
+        Hyprland指南(安装其他软件)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
+mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
+若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
+paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧
+    </div>
+    <a href="/posts/hyprland-guide-install-other-programs/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
 
+        </div>
+      
+        <div class="relative w-100  mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-install-archbiosxiaoice/" class="link black dim">
+        Arch Linux安装教程(以Legacy BIOS为例)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL+X退出。 如有疑问请参考Wiki以下章节：
+获取安装映像
+准备安装映像
+启动到Live环境
+一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.
+    </div>
+    <a href="/posts/how-to-install-archbiosxiaoice/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
 
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Hyprland指南(安装)</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 14, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://localhost:1313/posts/hyprland-guide-install/">Hyprland指南(安装)</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Hyprland指南(安装其他软件)</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Aug 14, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://localhost:1313/posts/hyprland-guide-install-other-programs/">Hyprland指南(安装其他软件)</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  
-  <h2 class="!my-0 pb-1 font-bold !leading-none">Arch Linux安装教程(以Legacy BIOS为例)</h2>
-  <time class="text-sm antialiased opacity-60"
-    >Jan 6, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="http://localhost:1313/posts/how-to-install-archbiosxiaoice/">Arch Linux安装教程(以Legacy BIOS为例)</a>
-</section>
-
-
-
-
-
+        </div>
+      
+    </section>
+  </div>
 
     </main>
-
-    <footer
-  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
->
-  <div class="mr-auto">
-    &copy; 2024
-    <a class="link" href="http://localhost:1313/">Welcome to my blog!</a>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  Welcome to my blog! 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
   </div>
-  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
-    >Powered by Hugo️️</a
-  >️
-  <a
-    class="link"
-    href="https://github.com/nanxiaobei/hugo-paper"
-    rel="noopener"
-    target="_blank"
-    >✎ Paper</a
-  >
 </footer>
 
   </body>
