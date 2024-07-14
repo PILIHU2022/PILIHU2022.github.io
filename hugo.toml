@@ -1,9 +1,8 @@
 baseURL = 'https://pilihu.us.kg/'
 languageCode = 'zh-cn'
 title = 'Welcome to my blog!'
-#git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper theme = 'ananke'
-theme = 'paper'
+theme = 'ananke'
+# theme = 'paper'
 [taxonomies]
   category = 'category'
   tag = 'tags'
-  Other = 'tags'
