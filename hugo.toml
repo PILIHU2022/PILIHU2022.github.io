@@ -6,3 +6,4 @@ theme = 'ananke'
 [taxonomies]
   category = 'category'
   tag = 'tags'
+  Others = 'tags'
