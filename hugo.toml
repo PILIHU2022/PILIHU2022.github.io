@@ -1,5 +1,4 @@
-baseURL = 'https://pilihu.us.kg/'
-languageCode = 'zh-cn'
+baseURL = 'https://pilihu2022-github-io-2vv.pages.dev'
 title = 'Welcome to my blog!'
 theme = 'ananke'
 # theme = 'paper'
