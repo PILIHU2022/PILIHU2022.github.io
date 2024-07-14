@@ -1,8 +1,8 @@
 ---
 title: 论注册Steam
 date: 2023-12-16 21:59:54
-categories: Others
-tags: Others
+categories: Other
+tags: Other
 ---
 # 关于Steam
 Steam，一个游戏购买平台，[见Wikimedia](https://zh.m.wikipedia.org/zh-cn/Steam)

@@ -1,153 +1,216 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-cn"
+>
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Hyprland指南(安装其他软件) | Welcome to my blog!</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Hyprland指南(安装其他软件) - Welcome to my blog!</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
 sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
 mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
 若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
 paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
-若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
-    <meta name="generator" content="Hugo 0.128.2">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
-
-
-
-    
-
-    
-      
-
-    
-
-    
-
-    
-      <link rel="canonical" href="http://localhost:1313/posts/hyprland-guide-install-other-programs/">
-    
-
-    <meta property="og:url" content="http://localhost:1313/posts/hyprland-guide-install-other-programs/">
-  <meta property="og:site_name" content="Welcome to my blog!">
-  <meta property="og:title" content="Hyprland指南(安装其他软件)">
-  <meta property="og:description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
-sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
-mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
-若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
-paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
-若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-08-14T15:25:00+00:00">
-    <meta property="article:modified_time" content="2023-08-14T15:25:00+00:00">
-    <meta property="article:tag" content="Guides">
-    <meta property="article:tag" content="Hyprland">
-
-  <meta itemprop="name" content="Hyprland指南(安装其他软件)">
-  <meta itemprop="description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
-sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
-mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
-若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
-paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
-若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
-  <meta itemprop="datePublished" content="2023-08-14T15:25:00+00:00">
-  <meta itemprop="dateModified" content="2023-08-14T15:25:00+00:00">
-  <meta itemprop="wordCount" content="91">
-  <meta itemprop="keywords" content="Guides,Hyprland">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hyprland指南(安装其他软件)">
-  <meta name="twitter:description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
-sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
-mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
-若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
-paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
-若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧" />
+  <meta name="author" content="Welcome to my blog!" />
   
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Welcome to my blog!
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-<div class="ananke-socials">
   
-</div>
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
 
-    </div>
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.128.2">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Welcome to my blog!</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
   </div>
-</nav>
 
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Hyprland指南(安装其他软件)</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Aug 14, 2023</time>
+      
+      
+      
+      
     </div>
+    
   </header>
 
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          
-        Posts
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Hyprland指南(安装其他软件)</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2023-08-14T15:25:00Z">August 14, 2023</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="hyprland指南第二篇">Hyprland指南(第二篇)</h1>
+  <section><h1 id="hyprland指南第二篇">Hyprland指南(第二篇)</h1>
 <h2 id="若想使用通知需要安装-dunst">若想使用通知，需要安装 dunst</h2>
 <p>如下:</p>
 <pre tabindex="0"><code>sudo pacman -S dunst
@@ -179,59 +242,82 @@ paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/h
 <h1 id="本篇教程结束">本篇教程结束</h1>
 <h1 id="all-done-enjoy-it">All done! Enjoy it!</h1>
 <h2 id="writerpilihu2022">Writer:PILIHU2022</h2>
-<ul class="pa0">
+</section>
+
   
-   <li class="list di">
-     <a href="/tags/guides/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Guides</a>
-   </li>
   
-   <li class="list di">
-     <a href="/tags/hyprland/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Hyprland</a>
-   </li>
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://localhost:1313/tags/guides"
+      >Guides</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://localhost:1313/tags/hyprland"
+      >Hyprland</a
+    >
+    
+  </footer>
   
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
 
-    <aside class="w-30-l mt6-l">
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/posts/hyprland-guide-install/"
+      ><span class="mr-1.5">←</span><span>Hyprland指南(安装)</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/posts/how-to-install-archbiosxiaoice/"
+      ><span>Arch Linux安装教程(以Legacy BIOS为例)</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
+  
+</article>
 
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/posts/hyprland-guide-install/">Hyprland指南(安装)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/posts/how-to-install-archbiosxiaoice/">Arch Linux安装教程(以Legacy BIOS为例)</a>
-        </li>
-	    
-    </ul>
-</div>
-
-</aside>
-
-  </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
-    &copy;  Welcome to my blog! 2024 
-  </a>
-    <div>
-<div class="ananke-socials">
-  
-</div>
-</div>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Welcome to my blog!</a>
   </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
 </footer>
 
   </body>

@@ -1,153 +1,216 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="zh-cn"
+>
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Arch Linux安装教程(以Legacy BIOS为例) | Welcome to my blog!</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Arch Linux安装教程(以Legacy BIOS为例) - Welcome to my blog!</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  
+  <meta name="description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
 如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
 获取安装映像
 准备安装映像
 启动到Live环境
-一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.">
-    <meta name="generator" content="Hugo 0.128.2">
-    
-    
-    
-    
-      <meta name="robots" content="noindex, nofollow">
-    
-    
-
-    
-<link rel="stylesheet" href="/ananke/css/main.min.css" >
-
-
-
-    
-
-    
-      
-
-    
-
-    
-
-    
-      <link rel="canonical" href="http://localhost:1313/posts/how-to-install-archbiosxiaoice/">
-    
-
-    <meta property="og:url" content="http://localhost:1313/posts/how-to-install-archbiosxiaoice/">
-  <meta property="og:site_name" content="Welcome to my blog!">
-  <meta property="og:title" content="Arch Linux安装教程(以Legacy BIOS为例)">
-  <meta property="og:description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
-如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
-获取安装映像
-准备安装映像
-启动到Live环境
-一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.">
-  <meta property="og:locale" content="zh_cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-01-06T13:30:43+00:00">
-    <meta property="article:modified_time" content="2023-01-06T13:30:43+00:00">
-    <meta property="article:tag" content="Guides">
-    <meta property="article:tag" content="Arch Linux">
-
-  <meta itemprop="name" content="Arch Linux安装教程(以Legacy BIOS为例)">
-  <meta itemprop="description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
-如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
-获取安装映像
-准备安装映像
-启动到Live环境
-一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.">
-  <meta itemprop="datePublished" content="2023-01-06T13:30:43+00:00">
-  <meta itemprop="dateModified" content="2023-01-06T13:30:43+00:00">
-  <meta itemprop="wordCount" content="631">
-  <meta itemprop="keywords" content="Guides,Arch Linux">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arch Linux安装教程(以Legacy BIOS为例)">
-  <meta name="twitter:description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
-如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
-获取安装映像
-准备安装映像
-启动到Live环境
-一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman.">
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
+一、验证引导模式 &amp; 联网 &amp; 换源： $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.org #检查网络连接（如果有输出内容，即为联网成功） $ reflector --country China --save /etc/pacman." />
+  <meta name="author" content="Welcome to my blog!" />
   
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        Welcome to my blog!
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-<div class="ananke-socials">
   
-</div>
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
 
-    </div>
+  
+  
+  
+  
+  
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.128.2">
+
+  
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Welcome to my blog!</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
   </div>
-</nav>
 
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Arch Linux安装教程(以Legacy BIOS为例)</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jan 6, 2023</time>
+      
+      
+      
+      
     </div>
+    
   </header>
 
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked ttu">
-          
-        Posts
-      </aside>
-      
-
-
-
-
-
-
-
-
-
-
-  <div id="sharing" class="mt3 ananke-socials">
-    
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Arch Linux安装教程(以Legacy BIOS为例)</h1>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2023-01-06T13:30:43Z">January 6, 2023</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="arch-linux安装教程-以legacy-bios为例-最后更新于2023年01月06日">Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日</h1>
+  <section><h1 id="arch-linux安装教程-以legacy-bios为例-最后更新于2023年01月06日">Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日</h1>
 <h2 id="1arch-linux--kde-的安装及配置">1.Arch Linux &amp; KDE 的安装及配置——</h2>
 <h4 id="零系统镜像的下载--安装介质的制作--bios-的设置">零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置</h4>
 <p><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.01.01/archlinux-2023.01.01-x86_64.iso">点击此处下载系统镜像</a>并<a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.01.01/sha256sums.txt">校验SHA256</a>镜像的完整性。校验无误后，使用<a href="https://www.ventoy.net/cn/download.html">Ventoy</a>制作安装介质。（如果是首次使用Ventoy，<a href="https://www.ventoy.net/cn/index.html">请点击此处</a>查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。</p>
@@ -439,44 +502,76 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#重启</span>
 </span></span></code></pre></div><h1 id="end想再看一遍本教程吗那就请在终端中输入sudo-rm--rf-你会回来的">END~~（想再看一遍本教程吗？那就请在终端中输入sudo rm -rf /*，你会回来的。）~~</h1>
 <h1 id="by-microsoftxiaoice">By MicrosoftXiaoice</h1>
-<ul class="pa0">
+</section>
+
   
-   <li class="list di">
-     <a href="/tags/guides/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Guides</a>
-   </li>
   
-   <li class="list di">
-     <a href="/tags/arch-linux/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Arch Linux</a>
-   </li>
+  <footer class="mt-12 flex flex-wrap">
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://localhost:1313/tags/guides"
+      >Guides</a
+    >
+     
+    <a
+      class="mb-1.5 mr-1.5 rounded-lg bg-black/[3%] px-5 py-1.5 no-underline dark:bg-white/[8%]"
+      href="http://localhost:1313/tags/arch-linux"
+      >Arch Linux</a
+    >
+    
+  </footer>
   
-</ul>
-<div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
 
-    <aside class="w-30-l mt6-l">
+  
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/posts/hyprland-guide-install-other-programs/"
+      ><span class="mr-1.5">←</span><span>Hyprland指南(安装其他软件)</span></a
+    >
+    
+    
+  </nav>
+  
+  
+
+  
+  
+
+  
+  
+
+  
 
 
+  
+</article>
 
-
-</aside>
-
-  </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
-    &copy;  Welcome to my blog! 2024 
-  </a>
-    <div>
-<div class="ananke-socials">
-  
-</div>
-</div>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Welcome to my blog!</a>
   </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
 </footer>
 
   </body>
