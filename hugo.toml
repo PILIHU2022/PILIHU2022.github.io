@@ -1,7 +1,7 @@
 baseURL = 'https://pilihu2022-github-io-2vv.pages.dev'
 title = 'Welcome to my blog!'
-theme = 'ananke'
-# theme = 'gokarna'
+# theme = 'ananke'
+theme = 'FixIt'
 [taxonomies]
   Others = "Other"
   tag = "tags"
