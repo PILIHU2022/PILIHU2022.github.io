@@ -3,5 +3,6 @@ title = 'Welcome to my blog!'
 theme = 'ananke'
 # theme = 'gokarna'
 [taxonomies]
-  category = 'category'
-  tag = 'tags'
+  Others = "Other"
+  tag = "tags"
+  category = "categories"
