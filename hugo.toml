@@ -4,5 +4,6 @@ title = 'Welcome to my blog!'
 theme = 'FixIt'
 [taxonomies]
   Others = "Other"
+  "Arch Linux" = "Arch Linux"
   tag = "tags"
   category = "categories"
