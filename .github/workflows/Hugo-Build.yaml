@@ -1,0 +1,20 @@
+name: Hugo-Build
+on:
+  push:
+    branches:
+      - Hugo
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Install Hugo
+      run: apt install hugo
+    - name: Hugo Build
+      run: Hugo
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with: 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: public
+        cname: hugo.pilihu.us.kg
