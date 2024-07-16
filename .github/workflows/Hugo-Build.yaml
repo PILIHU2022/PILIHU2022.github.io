@@ -1,3 +1,4 @@
+# 使用GitHub Actions自动部署Hugo博客
 name: Hugo-Build
 on:
   push:
