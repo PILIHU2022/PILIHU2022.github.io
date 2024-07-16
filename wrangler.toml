@@ -7,5 +7,5 @@ src = "public/index.html"
 entry-point = "/"
 
 [build]
-command = "hugo"
+command = "hugo version"
   env = { HUGO_VERSION = "0.128.2"}
