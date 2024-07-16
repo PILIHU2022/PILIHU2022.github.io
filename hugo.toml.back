@@ -1,0 +1,9 @@
+baseURL = 'https://pilihu2022-github-io-2vv.pages.dev'
+title = 'Welcome to my blog!'
+# theme = 'ananke'
+theme = 'FixIt'
+[taxonomies]
+  Others = "Other"
+  "Arch Linux" = "Arch Linux"
+  tag = "tags"
+  category = "categories"
