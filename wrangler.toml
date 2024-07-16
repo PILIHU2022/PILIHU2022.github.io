@@ -2,6 +2,10 @@
 [project]
 name = "bloghugo"
 
+[[pages]]
+src = "public/index.html"
+entry-point = "/"
+
 [build]
 command = "hugo"
   env = { HUGO_VERSION = "0.128.2"}
