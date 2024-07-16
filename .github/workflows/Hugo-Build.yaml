@@ -12,9 +12,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
       - name: Install Hugo
-        run: apt install hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-verson: latest
       - name: Hugo Build
-        run: Hugo
+        run: hugo
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with: 
