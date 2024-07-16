@@ -1,0 +1,7 @@
+# Configuration of Cloudflare Pages
+[project]
+name = "bloghugo"
+
+[build]
+command = "hugo"
+  env = { HUGO_VERSION = "0.128.2"}
