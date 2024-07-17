@@ -18,7 +18,9 @@ jobs:
           hugo-verson: latest
           extended: true
       - name: Hugo Build
-        run: hugo
+        run: |
+          git submodule update
+          hugo
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
