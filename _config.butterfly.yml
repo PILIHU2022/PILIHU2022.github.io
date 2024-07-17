@@ -818,7 +818,7 @@ preloader:
   # 2. pace (progress bar)
   source: 2
   # pace theme (see https://codebyzach.github.io/pace/)
-  pace_css_url: https://cdn.jsdelivr.net/gh/PILIHU2022/images-bed/corner-indicator.css
+  pace_css_url: /css/loading-bar.css
 
 # wordcount (字數統計)
 # see https://butterfly.js.org/posts/ceeb73f/#字數統計
