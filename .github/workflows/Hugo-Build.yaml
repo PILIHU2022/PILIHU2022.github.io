@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - Hugo
+permissions:
+  contents: write
 jobs:
   build:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
