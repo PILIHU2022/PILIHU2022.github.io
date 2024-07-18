@@ -3,7 +3,9 @@ title: 使用Hugo搭建Blog
 date: 2024-07-18 12:00:59
 tags: Blog
 categories: Blog
+draft: false
 ---
+
 # Hugo介绍
 > Hugo是世界上最快的构建网页的框架\
 ——[ Hugo官网 ](https://gohugo.io/)
