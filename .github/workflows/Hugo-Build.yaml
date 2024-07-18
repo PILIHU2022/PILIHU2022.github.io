@@ -19,8 +19,7 @@ jobs:
           extended: true
       - name: Hugo Build
         run: |
-          git submodule update
-          ls themes
+          git submodule sync
           hugo
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
