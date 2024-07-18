@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="简体中文">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Arch Linux安装教程(BIOS) - PILIHU&#39;s Blog</title><meta name="author" content="PILIHU(Spark)">
+<meta name="author-link" content="">
+<meta name="description" content="本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+1 sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: 1 archinstall 详见Wiki
+连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。" /><meta name="keywords" content='Guides, Arch Linux' />
+  <meta itemprop="name" content="Arch Linux安装教程(BIOS)">
+  <meta itemprop="description" content="本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+1 sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: 1 archinstall 详见Wiki
+连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。">
+  <meta itemprop="datePublished" content="2023-08-15T13:18:20+00:00">
+  <meta itemprop="dateModified" content="2024-07-18T16:17:56+08:00">
+  <meta itemprop="wordCount" content="497">
+  <meta itemprop="keywords" content="Guides,Arch Linux"><meta property="og:url" content="https://pilihu2022.github.io/posts/how-to-install-archbios/">
+  <meta property="og:site_name" content="PILIHU&#39;s Blog">
+  <meta property="og:title" content="Arch Linux安装教程(BIOS)">
+  <meta property="og:description" content="本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+1 sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: 1 archinstall 详见Wiki
+连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。">
+  <meta property="og:locale" content="简体中文">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-15T13:18:20+00:00">
+    <meta property="article:modified_time" content="2024-07-18T16:17:56+08:00">
+    <meta property="article:tag" content="Guides">
+    <meta property="article:tag" content="Arch Linux">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arch Linux安装教程(BIOS)">
+  <meta name="twitter:description" content="本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+1 sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: 1 archinstall 详见Wiki
+连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://pilihu2022.github.io/posts/how-to-install-archbios/" /><link rel="prev" href="https://pilihu2022.github.io/posts/hyprland-guide-install-useful-programs/" /><link rel="next" href="https://pilihu2022.github.io/posts/register-steam/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Arch Linux安装教程(BIOS)",
+    "inLanguage": "简体中文",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbios\/"
+    },"genre": "posts","keywords": "Guides, Arch Linux","wordcount":  497 ,
+    "url": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbios\/","datePublished": "2023-08-15T13:18:20+00:00","dateModified": "2024-07-18T16:17:56+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "PILIHU(Spark)"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Arch Linux安装教程(BIOS)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/arch-linux/" class="post-category" title="分类 - Arch Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Arch Linux</a></span></div><div class="post-meta-line"><span title="发布于 2023-08-15 13:18:20"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-08-15">2023-08-15</time></span>&nbsp;<span title="更新于 2024-07-18 16:17:56"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="497 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#arch-linux官方安装指南httpswikiarchlinuxcnorgwikie5ae89e8a385e68c87e58d97"><a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">Arch Linux官方安装指南</a></a>
+      <ul>
+        <li><a href="#arch-linux镜像下载地址ustc20230701httpsmirrorsustceducnarchlinuxiso20230701archlinux-20230701-x86_64iso"><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.07.01/archlinux-2023.07.01-x86_64.iso">Arch Linux镜像下载地址USTC，2023.07.01</a></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#添加的镜像站主要是ustc的镜像站或者清华镜像站">添加的镜像站主要是USTC的镜像站或者清华镜像站</a>
+              <ul>
+                <li><a href="#如果不想手动安装arch的话可以使用archinstall">如果不想手动安装Arch的话可以使用archinstall:</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#连接网络">连接网络</a></li>
+    <li><a href="#更新系统时间">更新系统时间</a></li>
+    <li><a href="#查看设备名">查看设备名</a></li>
+    <li><a href="#建立分区">建立分区</a>
+      <ul>
+        <li><a href="#开始分区"><del>开始分区</del></a>
+          <ul>
+            <li><a href="#为swap分区空间最好在10gb以内">为swap分区，空间最好在10GB以内</a></li>
+            <li><a href="#为mnt分区直接使用剩余空间">为/mnt分区，直接使用剩余空间</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#格式化分区">格式化分区</a></li>
+    <li><a href="#挂载分区">挂载分区</a></li>
+    <li><a href="#安装系统">安装系统</a>
+      <ul>
+        <li><a href="#选择镜像站">选择镜像站</a>
+          <ul>
+            <li><a href="#vim-基础命令">vim 基础命令</a></li>
+          </ul>
+        </li>
+        <li><a href="#在etcpacmandmirrorlist文件的第5行添加">在/etc/pacman.d/mirrorlist文件的第5行添加：</a></li>
+        <li><a href="#安装必需软件包">安装必需软件包</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置系统">配置系统</a>
+      <ul>
+        <li><a href="#chroot">Chroot</a></li>
+        <li><a href="#设置时区">设置时区</a></li>
+      </ul>
+    </li>
+    <li><a href="#本地化">本地化</a></li>
+    <li><a href="#网络配置">网络配置</a></li>
+    <li><a href="#设置root密码">设置Root密码</a></li>
+    <li><a href="#安装引导程序">安装引导程序</a>
+      <ul>
+        <li><a href="#将grub安装引导至系统盘">将grub安装引导至系统盘：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="本文介绍arch-linux安装以bios方式为例" class="heading-element"><span>本文介绍Arch Linux安装，以BIOS方式为例</span>
+  <a href="#%e6%9c%ac%e6%96%87%e4%bb%8b%e7%bb%8darch-linux%e5%ae%89%e8%a3%85%e4%bb%a5bios%e6%96%b9%e5%bc%8f%e4%b8%ba%e4%be%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="本文所输入的命令均可用tab键补全" class="heading-element"><span><em>本文所输入的命令均可用Tab键补全</em></span>
+  <a href="#%e6%9c%ac%e6%96%87%e6%89%80%e8%be%93%e5%85%a5%e7%9a%84%e5%91%bd%e4%bb%a4%e5%9d%87%e5%8f%af%e7%94%a8tab%e9%94%ae%e8%a1%a5%e5%85%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="前言" class="heading-element"><span>前言</span>
+  <a href="#%e5%89%8d%e8%a8%80" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h2 id="arch-linux官方安装指南httpswikiarchlinuxcnorgwikie5ae89e8a385e68c87e58d97" class="heading-element"><span><a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97"target="_blank" rel="external nofollow noopener noreferrer">Arch Linux官方安装指南</a></span>
+  <a href="#arch-linux%e5%ae%98%e6%96%b9%e5%ae%89%e8%a3%85%e6%8c%87%e5%8d%97httpswikiarchlinuxcnorgwikie5ae89e8a385e68c87e58d97" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="arch-linux镜像下载地址ustc20230701httpsmirrorsustceducnarchlinuxiso20230701archlinux-20230701-x86_64iso" class="heading-element"><span><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.07.01/archlinux-2023.07.01-x86_64.iso"target="_blank" rel="external nofollow noopener noreferrer">Arch Linux镜像下载地址USTC，2023.07.01</a></span>
+  <a href="#arch-linux%e9%95%9c%e5%83%8f%e4%b8%8b%e8%bd%bd%e5%9c%b0%e5%9d%80ustc20230701httpsmirrorsustceducnarchlinuxiso20230701archlinux-20230701-x86_64iso" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><h1 id="注意-arch-linux-安装镜像不支持安全启动secure-boot注意-arch-linux-安装镜像不支持安全启动secure-boot详见wikihttpswikiarchlinuxcnorgwikie5ae89e8a385e68c87e58d97" class="heading-element"><span>注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）<a href="https://wiki.archlinuxcn.org/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97"target="_blank" rel="external nofollow noopener noreferrer">注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki</a></span>
+  <a href="#%e6%b3%a8%e6%84%8f-arch-linux-%e5%ae%89%e8%a3%85%e9%95%9c%e5%83%8f%e4%b8%8d%e6%94%af%e6%8c%81%e5%ae%89%e5%85%a8%e5%90%af%e5%8a%a8secure-boot%e6%b3%a8%e6%84%8f-arch-linux-%e5%ae%89%e8%a3%85%e9%95%9c%e5%83%8f%e4%b8%8d%e6%94%af%e6%8c%81%e5%ae%89%e5%85%a8%e5%90%af%e5%8a%a8secure-boot%e8%af%a6%e8%a7%81wikihttpswikiarchlinuxcnorgwikie5ae89e8a385e68c87e58d97" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="前面说了一堆废话现在开始实操" class="heading-element"><span><del>前面说了一堆废话现在开始实操</del></span>
+  <a href="#%e5%89%8d%e9%9d%a2%e8%af%b4%e4%ba%86%e4%b8%80%e5%a0%86%e5%ba%9f%e8%af%9d%e7%8e%b0%e5%9c%a8%e5%bc%80%e5%a7%8b%e5%ae%9e%e6%93%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="开始安装" class="heading-element"><span>开始安装</span>
+  <a href="#%e5%bc%80%e5%a7%8b%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><p>启动后，先禁用reflector服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo systemctl stop reflector</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 <del>但它很鸡肋</del>，手动添加镜像站会更好
+<a href="https://wiki.archlinuxcn.org/wiki/Reflector"target="_blank" rel="external nofollow noopener noreferrer">更多关于该服务请见Wiki</a></p>
+<h4 id="添加的镜像站主要是ustc的镜像站或者清华镜像站" class="heading-element"><span>添加的镜像站主要是USTC的镜像站或者清华镜像站</span>
+  <a href="#%e6%b7%bb%e5%8a%a0%e7%9a%84%e9%95%9c%e5%83%8f%e7%ab%99%e4%b8%bb%e8%a6%81%e6%98%afustc%e7%9a%84%e9%95%9c%e5%83%8f%e7%ab%99%e6%88%96%e8%80%85%e6%b8%85%e5%8d%8e%e9%95%9c%e5%83%8f%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><h5 id="如果不想手动安装arch的话可以使用archinstall" class="heading-element"><span>如果不想手动安装Arch的话可以使用archinstall:</span>
+  <a href="#%e5%a6%82%e6%9e%9c%e4%b8%8d%e6%83%b3%e6%89%8b%e5%8a%a8%e5%ae%89%e8%a3%85arch%e7%9a%84%e8%af%9d%e5%8f%af%e4%bb%a5%e4%bd%bf%e7%94%a8archinstall" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h5><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">archinstall</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a href="https://wiki.archlinuxcn.org/wiki/Archinstall"target="_blank" rel="external nofollow noopener noreferrer">详见Wiki</a></p>
+<h2 id="连接网络" class="heading-element"><span>连接网络</span>
+  <a href="#%e8%bf%9e%e6%8e%a5%e7%bd%91%e7%bb%9c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ip link</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>要连接到网络：
+有线以太网 —— 连接网线。
+WiFi —— 使用 <a href="https://wiki.archlinuxcn.org/wiki/Iwd#iwctl"target="_blank" rel="external nofollow noopener noreferrer">iwctl</a> 验证无线网络。
+移动宽带调制解调器（移动网卡） - 使用 <a href="https://wiki.archlinux.org/title/mmcli"target="_blank" rel="external nofollow noopener noreferrer">mmcli</a> 实用程序连接到移动网络。</p>
+</blockquote>
+<blockquote>
+<p>配置网络连接：
+<a href="https://wiki.archlinuxcn.org/wiki/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE#DHCP"target="_blank" rel="external nofollow noopener noreferrer">DHCP</a>：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 <a href="https://wiki.archlinuxcn.org/wiki/Systemd-networkd"target="_blank" rel="external nofollow noopener noreferrer">systemd-networkd</a> 和 <a href="https://wiki.archlinux.org/title/systemd-resolved"target="_blank" rel="external nofollow noopener noreferrer">systemd-resolved</a> 提供功能）能够开箱即用。
+静态 IP 地址：按照静态 IP 地址进行操作。</p>
+</blockquote>
+<blockquote>
+<p>用 <a href="https://wiki.archlinuxcn.org/wiki/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE#Ping"target="_blank" rel="external nofollow noopener noreferrer">ping</a> 检查网络连接：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ping archlinux.org</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="更新系统时间" class="heading-element"><span>更新系统时间</span>
+  <a href="#%e6%9b%b4%e6%96%b0%e7%b3%bb%e7%bb%9f%e6%97%b6%e9%97%b4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>在 Live 环境中<a href="https://wiki.archlinuxcn.org/wiki/Systemd-timesyncd"target="_blank" rel="external nofollow noopener noreferrer">systemd-timesyncd</a>默认启用，建立互联网连接后，时间将自动同步。</p>
+</blockquote>
+<p>使用<a href="https://man.archlinux.org/man/timedatectl.1"target="_blank" rel="external nofollow noopener noreferrer">timedatectl(1)</a>确保系统时间是准确的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">timedatectl</span></span></code></pre></td></tr></table>
+</div>
+</div><p>即使时间不对也不要慌张: )</p>
+<h2 id="查看设备名" class="heading-element"><span>查看设备名</span>
+  <a href="#%e6%9f%a5%e7%9c%8b%e8%ae%be%e5%a4%87%e5%90%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>使用<a href="https://wiki.archlinuxcn.org/wiki/Lsblk"target="_blank" rel="external nofollow noopener noreferrer">lsblk</a>来查看设备名(/dev/sda、/dev/nvme0n1等等)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsblk -l</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或使用fdisk来查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fdisk -l#(小写字母l)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果中以 rom、loop 或者 airoot 结尾的设备可以被忽略。</p>
+<blockquote>
+<p>提示：在分区之前，请检查 NVMe 驱动器和 Advanced Format 硬盘是否使用了 最佳逻辑扇区大小。但注意更改逻辑扇区大小后可能导致在Windows系统中出现兼容性问题。</p>
+</blockquote>
+<h2 id="建立分区" class="heading-element"><span>建立分区</span>
+  <a href="#%e5%bb%ba%e7%ab%8b%e5%88%86%e5%8c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>使用<a href="https://wiki.archlinuxcn.org/wiki/Fdisk"target="_blank" rel="external nofollow noopener noreferrer">fdisk</a>来修改分区表：
+此处为/dev/sda、/dev/nvme0n1、/dev/mmcblk0等等，依上文查看的设备名而定</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fdisk /dev/vda #(此处的/dev/vda就是上文看到的设备名，不可照抄)</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th style="text-align:left">挂载点</th>
+<th style="text-align:left">分区</th>
+<th style="text-align:left">分区类型</th>
+<th style="text-align:left">建议大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[SWAP]</td>
+<td style="text-align:left">/dev/vda2(笔者这里是vda2，为swap分区，容量较小)</td>
+<td style="text-align:left">Linux swap(交换空间)</td>
+<td style="text-align:left">大于512MB</td>
+</tr>
+<tr>
+<td style="text-align:left">/mnt</td>
+<td style="text-align:left">/dev/vda1(笔者这里是vda1，为根目录，容量量较大)</td>
+<td style="text-align:left">Linux</td>
+<td style="text-align:left">剩余的空间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="开始分区" class="heading-element"><span><del>开始分区</del></span>
+  <a href="#%e5%bc%80%e5%a7%8b%e5%88%86%e5%8c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><blockquote>
+<p>执行上文的</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fdisk /dev/vda#vda不过多赘述</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入&quot;o&quot;
+当看见：&ldquo;Created a new DOS (MBR) disklabel with disk&quot;时，说明已经创建了分区表</p>
+<h4 id="为swap分区空间最好在10gb以内" class="heading-element"><span>为swap分区，空间最好在10GB以内</span>
+  <a href="#%e4%b8%baswap%e5%88%86%e5%8c%ba%e7%a9%ba%e9%97%b4%e6%9c%80%e5%a5%bd%e5%9c%a810gb%e4%bb%a5%e5%86%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Command (m for help): n
+</span></span><span class="line"><span class="cl">Partition type
+</span></span><span class="line"><span class="cl">   p   primary (0 primary, 0 extended, 4 free)
+</span></span><span class="line"><span class="cl">   e   extended (container for logical partitions)
+</span></span><span class="line"><span class="cl">Select (default p): 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Using default response p.
+</span></span><span class="line"><span class="cl">Partition number (1-4, default 1): #回车
+</span></span><span class="line"><span class="cl">First sector (2048-62914559, default 2048):#回车 
+</span></span><span class="line"><span class="cl">Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-62914559, default 62914559): +*G#此处的*为要添加的空间</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入&quot;t&rdquo;，设置分区类型</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Command (m for help): t
+</span></span><span class="line"><span class="cl">Partition number (1,2, default 2): 
+</span></span><span class="line"><span class="cl">Hex code or alias (type L to list all): 82</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="为mnt分区直接使用剩余空间" class="heading-element"><span>为/mnt分区，直接使用剩余空间</span>
+  <a href="#%e4%b8%bamnt%e5%88%86%e5%8c%ba%e7%9b%b4%e6%8e%a5%e4%bd%bf%e7%94%a8%e5%89%a9%e4%bd%99%e7%a9%ba%e9%97%b4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>继续执行n</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Command (m for help): n
+</span></span><span class="line"><span class="cl">Partition type
+</span></span><span class="line"><span class="cl">   p   primary (0 primary, 0 extended, 4 free)
+</span></span><span class="line"><span class="cl">   e   extended (container for logical partitions)
+</span></span><span class="line"><span class="cl">Select (default p): 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Using default response p.
+</span></span><span class="line"><span class="cl">Partition number (1-4, default 1): #此处回车
+</span></span><span class="line"><span class="cl">First sector (2048-62914559, default 2048):#此处回车 
+</span></span><span class="line"><span class="cl">Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-62914559, default 62914559): #此处回车</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入&quot;w&quot;以保存并退出</p>
+<h2 id="格式化分区" class="heading-element"><span>格式化分区</span>
+  <a href="#%e6%a0%bc%e5%bc%8f%e5%8c%96%e5%88%86%e5%8c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>这里使用btrfs文件系统
+先查看硬盘分区</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsblk -l</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后将空间大的分区作为/mnt</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkfs.btrfs -L ARCH /dev/vda1#此处的/dev/vda1应改为你想作为系统的分区</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将交换分区初始化：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkswap -L SWAP /dev/vda2#此处的/dev/vda2应改为你想作为swap的分区</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="挂载分区" class="heading-element"><span>挂载分区</span>
+  <a href="#%e6%8c%82%e8%bd%bd%e5%88%86%e5%8c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>将根磁盘卷挂载到/mnt：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mount /dev/vda1 /mnt #此处的/dev/vda1应改为你想作为系统的分区
+</span></span><span class="line"><span class="cl">mkdir /mnt/home
+</span></span><span class="line"><span class="cl">mount /dev/vda1 /mnt/home
+</span></span><span class="line"><span class="cl">mkdir /mnt/root
+</span></span><span class="line"><span class="cl">mount /dev/vda1 /mnt/root</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启用swap分区</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">swapon /dev/vda2#此处的/dev/vda2应改为你想作为swap的分区</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装系统" class="heading-element"><span>安装系统</span>
+  <a href="#%e5%ae%89%e8%a3%85%e7%b3%bb%e7%bb%9f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="选择镜像站" class="heading-element"><span>选择镜像站</span>
+  <a href="#%e9%80%89%e6%8b%a9%e9%95%9c%e5%83%8f%e7%ab%99" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vim /etc/pacman.d/mirrorlist</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="vim-基础命令" class="heading-element"><span>vim 基础命令</span>
+  <a href="#vim-%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><code>/*</code>搜索
+<code>a</code>输入状态
+<code>esc键</code>退出模式
+保存并退出vim：
+<code>先按Esc键，再按:wq</code>
+退出vim而不写入文件：
+<code>先按Esc键，再按:q!</code></p>
+<h3 id="在etcpacmandmirrorlist文件的第5行添加" class="heading-element"><span>在/etc/pacman.d/mirrorlist文件的第5行添加：</span>
+  <a href="#%e5%9c%a8etcpacmandmirrorlist%e6%96%87%e4%bb%b6%e7%9a%84%e7%ac%ac5%e8%a1%8c%e6%b7%bb%e5%8a%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><code>Server = httsp://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</code></p>
+<h3 id="安装必需软件包" class="heading-element"><span>安装必需软件包</span>
+  <a href="#%e5%ae%89%e8%a3%85%e5%bf%85%e9%9c%80%e8%bd%af%e4%bb%b6%e5%8c%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacstrap -K /mnt base linux linux-headers linux-firmware base-devel btrfs-progs networkmanager bash-completion vim#此处的vim可以是其他的编辑器</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置系统" class="heading-element"><span>配置系统</span>
+  <a href="#%e9%85%8d%e7%bd%ae%e7%b3%bb%e7%bb%9f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>用以下命令生成 <a href="https://wiki.archlinuxcn.org/wiki/Fstab"target="_blank" rel="external nofollow noopener noreferrer">fstab</a> 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>强烈建议在执行完以上命令后，检查一下生成的 /mnt/etc/fstab 文件是否正确。</p>
+</blockquote>
+<h3 id="chroot" class="heading-element"><span>Chroot</span>
+  <a href="#chroot" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>通过 <a href="https://wiki.archlinuxcn.org/wiki/Change_root"target="_blank" rel="external nofollow noopener noreferrer">chroot</a> 到新安装的系统</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">arch-chroot /mnt</span></span></code></pre></td></tr></table>
+</div>
+</div><p><mark>提示：此处使用的是arch-chroot而不是直接使用chroot，注意不要输错。</mark></p>
+<h3 id="设置时区" class="heading-element"><span>设置时区</span>
+  <a href="#%e8%ae%be%e7%bd%ae%e6%97%b6%e5%8c%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>此处以中国为例，<del>别找北京了，就只有一个上海</del></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后运行 <a href="https://man.archlinux.org/man/hwclock.8"target="_blank" rel="external nofollow noopener noreferrer">hwclock</a> 以生成/etc/adjtime：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hwclock --systohc</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="本地化" class="heading-element"><span>本地化</span>
+  <a href="#%e6%9c%ac%e5%9c%b0%e5%8c%96" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><blockquote>
+<p>程序和库如果需要本地化文本，都依赖区域设置，后者明确规定了地域、货币、时区日期的格式、字符排列方式和其他本地化标准。</p>
+</blockquote>
+<p>需在这两个文件设置：locale.gen 与 locale.conf。</p>
+<p>编辑 /etc/locale.gen，然后取消掉 en_US.UTF-8 UTF-8 和其他需要的区域设置前的注释（#）。
+接着执行 locale-gen 以生成 locale 信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">locale-gen#暂不执行</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更改/etc/locale.gen内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vim /etc/locale.gen</span></span></code></pre></td></tr></table>
+</div>
+</div><p>去除en_US.UTF-8和zh_CN.UTF-8前面的#
+保存并退出
+然后执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">locale-gen</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后创建/etc/locale.conf，并 <a href="https://wiki.archlinuxcn.org/wiki/Locale#%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE"target="_blank" rel="external nofollow noopener noreferrer">编辑设定LANG变量</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LANG=en_US.UTF-8</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong><mark>千万别设置为zh_CN.UTF-8!否则会导致TTY乱码！</mark></strong></p>
+<h2 id="网络配置" class="heading-element"><span>网络配置</span>
+  <a href="#%e7%bd%91%e7%bb%9c%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>创建<a href="https://wiki.archlinuxcn.org/wiki/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE#%E8%AE%BE%E7%BD%AE%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%90%8D"target="_blank" rel="external nofollow noopener noreferrer">hostname</a>文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">myhostname(主机名)</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="设置root密码" class="heading-element"><span>设置Root密码</span>
+  <a href="#%e8%ae%be%e7%bd%aeroot%e5%af%86%e7%a0%81" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">passwd</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注：请记住你所设置的密码！</strong></p>
+<h2 id="安装引导程序" class="heading-element"><span>安装引导程序</span>
+  <a href="#%e5%ae%89%e8%a3%85%e5%bc%95%e5%af%bc%e7%a8%8b%e5%ba%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pacman -S grub #双系统请多安装一个os-prober;Intel的CPU安装intel-ucode;AMD的CPU安装amd-ucode</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果出现&quot;Import PGP key&quot;字样，请运行以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">rm -rf /etc/pacman.d/gnupg &amp;&amp; pacman-key --init &amp;&amp; pacman-key --populate archlinux
+</span></span><span class="line"><span class="cl">#生成新的密钥环并重新签署密钥</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="将grub安装引导至系统盘" class="heading-element"><span>将grub安装引导至系统盘：</span>
+  <a href="#%e5%b0%86grub%e5%ae%89%e8%a3%85%e5%bc%95%e5%af%bc%e8%87%b3%e7%b3%bb%e7%bb%9f%e7%9b%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">lsblk #查看设备名</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装引导</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">grub-install /dev/vda#这里的vda是设备名，不带数字</span></span></code></pre></td></tr></table>
+</div>
+</div><p>编辑/etc/default/grub文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">vim /etc/default/grub</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将&quot;GRUB_CMDLINE_LINUX_DEFAULT=&ldquo;loglevel=3 quiet&rdquo;&quot;
+中的loglevel=3改为5，删去quiet，添加nowatchdog；
+修改后执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">grub-mkconfig -o /boot/grub/grub.cfg</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为root再设置一次密码，可以为刚才设置的
+最后执行
+<code>exit</code>退出arch-chroot
+<code>umout -R /mnt</code>取消挂载/mnt
+<code>reboot</code>重启</p>
+<h1 id="最后不出意外的话系统已经安装好了重启后拔出介质然后进入grub引导界面" class="heading-element"><span>最后，不出意外的话系统已经安装好了，重启后拔出介质，然后进入grub引导界面</span>
+  <a href="#%e6%9c%80%e5%90%8e%e4%b8%8d%e5%87%ba%e6%84%8f%e5%a4%96%e7%9a%84%e8%af%9d%e7%b3%bb%e7%bb%9f%e5%b7%b2%e7%bb%8f%e5%ae%89%e8%a3%85%e5%a5%bd%e4%ba%86%e9%87%8d%e5%90%af%e5%90%8e%e6%8b%94%e5%87%ba%e4%bb%8b%e8%b4%a8%e7%84%b6%e5%90%8e%e8%bf%9b%e5%85%a5grub%e5%bc%95%e5%af%bc%e7%95%8c%e9%9d%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="那么恭喜你你的arch-linux已经成功安装好了" class="heading-element"><span>那么恭喜你，你的Arch Linux已经成功安装好了！</span>
+  <a href="#%e9%82%a3%e4%b9%88%e6%81%ad%e5%96%9c%e4%bd%a0%e4%bd%a0%e7%9a%84arch-linux%e5%b7%b2%e7%bb%8f%e6%88%90%e5%8a%9f%e5%ae%89%e8%a3%85%e5%a5%bd%e4%ba%86" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="还想再看一遍这个教程吗只需要执行sudo-rm--rf-你会回来的" class="heading-element"><span><del>还想再看一遍这个教程吗？只需要执行<code>sudo rm -rf /*</code>，你会回来的</del></span>
+  <a href="#%e8%bf%98%e6%83%b3%e5%86%8d%e7%9c%8b%e4%b8%80%e9%81%8d%e8%bf%99%e4%b8%aa%e6%95%99%e7%a8%8b%e5%90%97%e5%8f%aa%e9%9c%80%e8%a6%81%e6%89%a7%e8%a1%8csudo-rm--rf-%e4%bd%a0%e4%bc%9a%e5%9b%9e%e6%9d%a5%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-07-18 16:17:56">更新于 2024-07-18&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/how-to-install-archbios/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://pilihu2022.github.io/posts/how-to-install-archbios/" data-title="Arch Linux安装教程(BIOS)" data-hashtags="Guides,Arch Linux"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://pilihu2022.github.io/posts/how-to-install-archbios/" data-hashtag="Guides"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://pilihu2022.github.io/posts/how-to-install-archbios/" data-title="Arch Linux安装教程(BIOS)"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/guides/" class="post-tag" title="标签 - Guides">Guides</a><a href="/tags/arch-linux/" class="post-tag" title="标签 - Arch Linux">Arch Linux</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/hyprland-guide-install-useful-programs/" class="post-nav-item" rel="prev" title="Hyprland指南(安装常用软件)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Hyprland指南(安装常用软件)</a>
+      <a href="/posts/register-steam/" class="post-nav-item" rel="next" title="论注册Steam">论注册Steam<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.129.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">PILIHU(Spark)</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"version":"v0.3.8"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

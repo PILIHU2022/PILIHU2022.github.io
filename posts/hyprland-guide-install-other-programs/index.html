@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="简体中文">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Hyprland指南(安装其他软件) - PILIHU&#39;s Blog</title><meta name="author" content="PILIHU(Spark)">
+<meta name="author-link" content="">
+<meta name="description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+1 sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
+1 mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
+若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
+1 paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) 1 sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 1 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧" /><meta name="keywords" content='Guides, Hyprland' />
+  <meta itemprop="name" content="Hyprland指南(安装其他软件)">
+  <meta itemprop="description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+1 sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
+1 mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
+若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
+1 paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) 1 sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 1 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
+  <meta itemprop="datePublished" content="2023-08-14T15:25:00+00:00">
+  <meta itemprop="dateModified" content="2024-07-18T16:17:56+08:00">
+  <meta itemprop="wordCount" content="97">
+  <meta itemprop="keywords" content="Guides,Hyprland"><meta property="og:url" content="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/">
+  <meta property="og:site_name" content="PILIHU&#39;s Blog">
+  <meta property="og:title" content="Hyprland指南(安装其他软件)">
+  <meta property="og:description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+1 sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
+1 mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
+若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
+1 paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) 1 sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 1 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
+  <meta property="og:locale" content="简体中文">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-14T15:25:00+00:00">
+    <meta property="article:modified_time" content="2024-07-18T16:17:56+08:00">
+    <meta property="article:tag" content="Guides">
+    <meta property="article:tag" content="Hyprland">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hyprland指南(安装其他软件)">
+  <meta name="twitter:description" content="Hyprland指南(第二篇) 若想使用通知，需要安装 dunst 如下:
+1 sudo pacman -S dunst 然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。 都用 Arch Linux 了，不会连创建文件夹都不会吧？ 为了避免有人不会创建文件夹
+1 mkdir ~/.config/dunst 然后设置自启动： 在~/.config/hypr/hyprland.conf中添加： exec-once = dunst
+若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar 如下:
+1 paru -S waybar-git 然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中可以新建文件夹，也可以不用然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径） 设置自启动： 在~/.config/hypr/hyprland.conf 中写入： exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css 其中的$WAYBAR 为你的 waybar 具体路径
+若想输入中文，你需要安装输入法 若想使用fcitx5的中文输入法(非rime) 1 sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5 1 sudo pacman -S fcitx5-rime 我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/" /><link rel="prev" href="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/" /><link rel="next" href="https://pilihu2022.github.io/posts/hyprland-guide-install/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Hyprland指南(安装其他软件)",
+    "inLanguage": "简体中文",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/pilihu2022.github.io\/posts\/hyprland-guide-install-other-programs\/"
+    },"genre": "posts","keywords": "Guides, Hyprland","wordcount":  97 ,
+    "url": "https:\/\/pilihu2022.github.io\/posts\/hyprland-guide-install-other-programs\/","datePublished": "2023-08-14T15:25:00+00:00","dateModified": "2024-07-18T16:17:56+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "PILIHU(Spark)"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Hyprland指南(安装其他软件)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/guide/" class="post-category" title="分类 - Guide"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Guide</a></span></div><div class="post-meta-line"><span title="发布于 2023-08-14 15:25:00"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-08-14">2023-08-14</time></span>&nbsp;<span title="更新于 2024-07-18 16:17:56"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="97 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#若想使用通知需要安装-dunst">若想使用通知，需要安装 dunst</a></li>
+    <li><a href="#若想实现类似于-i3-status-的功能状态栏需要安装-waybar">若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar</a></li>
+    <li><a href="#若想输入中文你需要安装输入法"><del>若想输入中文</del>，你需要安装输入法</a>
+      <ul>
+        <li><a href="#若想使用fcitx5的中文输入法非rime">若想使用fcitx5的中文输入法(非rime)</a></li>
+        <li><a href="#此处以安装rime输入法为例其他输入法同理不过推荐使用fcitx5"><em>此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5</em></a>
+          <ul>
+            <li><a href="#此外我们还需要设置环境变量此处使用neovim来编辑vimnano等等编辑器均可无需跟风">此外，我们还需要设置环境变量，此处使用neovim来编辑(<del>vim,nano等等编辑器均可，无需跟风</del>)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#writerpilihu2022">Writer:PILIHU2022</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="hyprland指南第二篇" class="heading-element"><span>Hyprland指南(第二篇)</span>
+  <a href="#hyprland%e6%8c%87%e5%8d%97%e7%ac%ac%e4%ba%8c%e7%af%87" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h2 id="若想使用通知需要安装-dunst" class="heading-element"><span>若想使用通知，需要安装 dunst</span>
+  <a href="#%e8%8b%a5%e6%83%b3%e4%bd%bf%e7%94%a8%e9%80%9a%e7%9f%a5%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85-dunst" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S dunst</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后将本仓库的/dunst 复制到~/.config/dunst 中，若没有该文件夹，则创建一个 dunst 的文件夹，否则 dunst 不会读取并且使用的。
+<del>都用 Arch Linux 了，不会连创建文件夹都不会吧？</del>
+<del>为了避免有人不会创建文件夹</del></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir ~/.config/dunst</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后设置自启动：
+在~/.config/hypr/hyprland.conf中添加：
+<code>exec-once = dunst</code></p>
+<h2 id="若想实现类似于-i3-status-的功能状态栏需要安装-waybar" class="heading-element"><span>若想实现类似于 i3-status 的功能（状态栏），需要安装 waybar</span>
+  <a href="#%e8%8b%a5%e6%83%b3%e5%ae%9e%e7%8e%b0%e7%b1%bb%e4%bc%bc%e4%ba%8e-i3-status-%e7%9a%84%e5%8a%9f%e8%83%bd%e7%8a%b6%e6%80%81%e6%a0%8f%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85-waybar" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">paru -S waybar-git</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后将本仓库中的/waybar 文件夹复制到~/.config/hypr 中<del>可以新建文件夹，也可以不用</del>然后记住 waybar 文件夹中的 config.jsonc 和 style.css 路径（完整路径）
+设置自启动：
+在~/.config/hypr/hyprland.conf 中写入：
+<code>exec-once = waybar -c $WAYBAR/config.jsonc -s $WAYBAR/style.css</code>
+<strong>其中的$WAYBAR 为你的 waybar 具体路径</strong></p>
+<h2 id="若想输入中文你需要安装输入法" class="heading-element"><span><del>若想输入中文</del>，你需要安装输入法</span>
+  <a href="#%e8%8b%a5%e6%83%b3%e8%be%93%e5%85%a5%e4%b8%ad%e6%96%87%e4%bd%a0%e9%9c%80%e8%a6%81%e5%ae%89%e8%a3%85%e8%be%93%e5%85%a5%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="若想使用fcitx5的中文输入法非rime" class="heading-element"><span>若想使用fcitx5的中文输入法(非rime)</span>
+  <a href="#%e8%8b%a5%e6%83%b3%e4%bd%bf%e7%94%a8fcitx5%e7%9a%84%e4%b8%ad%e6%96%87%e8%be%93%e5%85%a5%e6%b3%95%e9%9d%9erime" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S fcitx5-im fcitx5-chinese fcitx5-pinyin-moegirl fcitx5-material-color # 安装输入法相关软件包，词库，主题 </span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="此处以安装rime输入法为例其他输入法同理不过推荐使用fcitx5" class="heading-element"><span><em>此处以安装rime输入法为例，其他输入法同理，不过推荐使用fcitx5</em></span>
+  <a href="#%e6%ad%a4%e5%a4%84%e4%bb%a5%e5%ae%89%e8%a3%85rime%e8%be%93%e5%85%a5%e6%b3%95%e4%b8%ba%e4%be%8b%e5%85%b6%e4%bb%96%e8%be%93%e5%85%a5%e6%b3%95%e5%90%8c%e7%90%86%e4%b8%8d%e8%bf%87%e6%8e%a8%e8%8d%90%e4%bd%bf%e7%94%a8fcitx5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S fcitx5-rime</span></span></code></pre></td></tr></table>
+</div>
+</div><p><del>我使用的就是rime输入法，不过我感觉输入体验是不如搜狗输入法，将就着用吧</del></p>
+<h4 id="此外我们还需要设置环境变量此处使用neovim来编辑vimnano等等编辑器均可无需跟风" class="heading-element"><span>此外，我们还需要设置环境变量，此处使用neovim来编辑(<del>vim,nano等等编辑器均可，无需跟风</del>)</span>
+  <a href="#%e6%ad%a4%e5%a4%96%e6%88%91%e4%bb%ac%e8%bf%98%e9%9c%80%e8%a6%81%e8%ae%be%e7%bd%ae%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e6%ad%a4%e5%a4%84%e4%bd%bf%e7%94%a8neovim%e6%9d%a5%e7%bc%96%e8%be%91vimnano%e7%ad%89%e7%ad%89%e7%bc%96%e8%be%91%e5%99%a8%e5%9d%87%e5%8f%af%e6%97%a0%e9%9c%80%e8%b7%9f%e9%a3%8e" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nvim /etc/environment</span></span></code></pre></td></tr></table>
+</div>
+</div><p>加入以下内容：
+<code>GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx SDL_IM_MODULE=fcitx GLFW_IM_MODULE=ibus</code></p>
+<h1 id="本篇教程结束" class="heading-element"><span>本篇教程结束</span>
+  <a href="#%e6%9c%ac%e7%af%87%e6%95%99%e7%a8%8b%e7%bb%93%e6%9d%9f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="all-done-enjoy-it" class="heading-element"><span>All done! Enjoy it!</span>
+  <a href="#all-done-enjoy-it" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h2 id="writerpilihu2022" class="heading-element"><span>Writer:PILIHU2022</span>
+  <a href="#writerpilihu2022" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-07-18 16:17:56">更新于 2024-07-18&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/hyprland-guide-install-other-programs/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/" data-title="Hyprland指南(安装其他软件)" data-hashtags="Guides,Hyprland"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/" data-hashtag="Guides"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/" data-title="Hyprland指南(安装其他软件)"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/guides/" class="post-tag" title="标签 - Guides">Guides</a><a href="/tags/hyprland/" class="post-tag" title="标签 - Hyprland">Hyprland</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/how-to-install-archbiosxiaoice/" class="post-nav-item" rel="prev" title="Arch Linux安装教程(以Legacy BIOS为例)"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Arch Linux安装教程(以Legacy BIOS为例)</a>
+      <a href="/posts/hyprland-guide-install/" class="post-nav-item" rel="next" title="Hyprland指南(安装)">Hyprland指南(安装)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.129.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">PILIHU(Spark)</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"version":"v0.3.8"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

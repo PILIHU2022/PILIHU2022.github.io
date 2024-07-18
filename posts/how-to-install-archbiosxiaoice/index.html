@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="简体中文">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Arch Linux安装教程(以Legacy BIOS为例) - PILIHU&#39;s Blog</title><meta name="author" content="PILIHU(Spark)">
+<meta name="author-link" content="">
+<meta name="description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
+获取安装映像
+准备安装映像
+启动到Live环境
+一、验证引导模式 &amp; 联网 &amp; 换源： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux." /><meta name="keywords" content='Guides, Arch Linux' />
+  <meta itemprop="name" content="Arch Linux安装教程(以Legacy BIOS为例)">
+  <meta itemprop="description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
+获取安装映像
+准备安装映像
+启动到Live环境
+一、验证引导模式 &amp; 联网 &amp; 换源： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.">
+  <meta itemprop="datePublished" content="2023-01-06T13:30:43+00:00">
+  <meta itemprop="dateModified" content="2024-07-18T16:17:56+08:00">
+  <meta itemprop="wordCount" content="869">
+  <meta itemprop="keywords" content="Guides,Arch Linux"><meta property="og:url" content="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/">
+  <meta property="og:site_name" content="PILIHU&#39;s Blog">
+  <meta property="og:title" content="Arch Linux安装教程(以Legacy BIOS为例)">
+  <meta property="og:description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
+获取安装映像
+准备安装映像
+启动到Live环境
+一、验证引导模式 &amp; 联网 &amp; 换源： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.">
+  <meta property="og:locale" content="简体中文">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-06T13:30:43+00:00">
+    <meta property="article:modified_time" content="2024-07-18T16:17:56+08:00">
+    <meta property="article:tag" content="Guides">
+    <meta property="article:tag" content="Arch Linux">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Arch Linux安装教程(以Legacy BIOS为例)">
+  <meta name="twitter:description" content="Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日 1.Arch Linux &amp; KDE 的安装及配置—— 零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置 点击此处下载系统镜像并校验SHA256镜像的完整性。校验无误后，使用Ventoy制作安装介质。（如果是首次使用Ventoy，请点击此处查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。
+如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL&#43;X退出。 如有疑问请参考Wiki以下章节：
+获取安装映像
+准备安装映像
+启动到Live环境
+一、验证引导模式 &amp; 联网 &amp; 换源： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 $ ls /sys/firmware/efi/efivars #验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程） $ iwctl #运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步） [iwctl]# device list #列出WiFi设备（一般为wlan0；这里以wlan0为例） [iwctl]# station wlan0 scan #扫描网络 [iwctl]# station wlan0 get-networks #列出可用网络 [iwctl]# station wlan0 connect X #连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确） [iwctl]# exit #退出iwctl $ ping -c 5 archlinux.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/" /><link rel="next" href="https://pilihu2022.github.io/posts/hyprland-guide-install-other-programs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Arch Linux安装教程(以Legacy BIOS为例)",
+    "inLanguage": "简体中文",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbiosxiaoice\/"
+    },"genre": "posts","keywords": "Guides, Arch Linux","wordcount":  869 ,
+    "url": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbiosxiaoice\/","datePublished": "2023-01-06T13:30:43+00:00","dateModified": "2024-07-18T16:17:56+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "PILIHU(Spark)"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Arch Linux安装教程(以Legacy BIOS为例)</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/arch-linux/" class="post-category" title="分类 - Arch Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Arch Linux</a></span></div><div class="post-meta-line"><span title="发布于 2023-01-06 13:30:43"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-01-06">2023-01-06</time></span>&nbsp;<span title="更新于 2024-07-18 16:17:56"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="869 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1arch-linux--kde-的安装及配置">1.Arch Linux &amp; KDE 的安装及配置——</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#零系统镜像的下载--安装介质的制作--bios-的设置">零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置</a>
+              <ul>
+                <li><a href="#如果设备中包含nvidia显卡请在进入livecd的grub引导界面时按下键盘上的字母e进入grub的编辑模式在其linux行的末尾加入nouveaumodeset0来屏蔽nvidia开源驱动否则会出现加载nouveau模块报错和其他模块无法加载的问题编辑完成后按ctrlx退出">如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL+X退出。</a></li>
+              </ul>
+            </li>
+            <li><a href="#一验证引导模式--联网--换源">一、验证引导模式 &amp; 联网 &amp; 换源：</a></li>
+            <li><a href="#二分区--挂载">二、分区 &amp; 挂载：</a></li>
+            <li><a href="#三安装基本的包--初步配置">三、安装基本的包 &amp; 初步配置：</a></li>
+            <li><a href="#四退出目标系统">四、退出目标系统：</a></li>
+            <li><a href="#五系统配置">五、系统配置：</a></li>
+            <li><a href="#六安装桌面环境">六、安装桌面环境：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2桌面中文环境的设置--输入法的安装及配置">2.桌面中文环境的设置 &amp; 输入法的安装及配置——</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#一中文环境的设置">一、中文环境的设置：</a></li>
+            <li><a href="#二fcitx-5-输入法的安装">二、Fcitx 5 输入法的安装：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="arch-linux安装教程-以legacy-bios为例-最后更新于2023年01月06日" class="heading-element"><span>Arch Linux安装教程 （以Legacy BIOS为例） 最后更新于2023年01月06日</span>
+  <a href="#arch-linux%e5%ae%89%e8%a3%85%e6%95%99%e7%a8%8b-%e4%bb%a5legacy-bios%e4%b8%ba%e4%be%8b-%e6%9c%80%e5%90%8e%e6%9b%b4%e6%96%b0%e4%ba%8e2023%e5%b9%b401%e6%9c%8806%e6%97%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h2 id="1arch-linux--kde-的安装及配置" class="heading-element"><span>1.Arch Linux &amp; KDE 的安装及配置——</span>
+  <a href="#1arch-linux--kde-%e7%9a%84%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h4 id="零系统镜像的下载--安装介质的制作--bios-的设置" class="heading-element"><span>零、系统镜像的下载 &amp; 安装介质的制作 &amp; BIOS 的设置</span>
+  <a href="#%e9%9b%b6%e7%b3%bb%e7%bb%9f%e9%95%9c%e5%83%8f%e7%9a%84%e4%b8%8b%e8%bd%bd--%e5%ae%89%e8%a3%85%e4%bb%8b%e8%b4%a8%e7%9a%84%e5%88%b6%e4%bd%9c--bios-%e7%9a%84%e8%ae%be%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p><a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.01.01/archlinux-2023.01.01-x86_64.iso"target="_blank" rel="external nofollow noopener noreferrer">点击此处下载系统镜像</a>并<a href="https://mirrors.ustc.edu.cn/archlinux/iso/2023.01.01/sha256sums.txt"target="_blank" rel="external nofollow noopener noreferrer">校验SHA256</a>镜像的完整性。校验无误后，使用<a href="https://www.ventoy.net/cn/download.html"target="_blank" rel="external nofollow noopener noreferrer">Ventoy</a>制作安装介质。（如果是首次使用Ventoy，<a href="https://www.ventoy.net/cn/index.html"target="_blank" rel="external nofollow noopener noreferrer">请点击此处</a>查看使用方法）然后进入BIOS，将安全启动和快速启动关闭并将安装介质（如U盘）设置为第一启动项，并按F10保存退出。进入ArchLinux安装盘即可。</p>
+<h5 id="如果设备中包含nvidia显卡请在进入livecd的grub引导界面时按下键盘上的字母e进入grub的编辑模式在其linux行的末尾加入nouveaumodeset0来屏蔽nvidia开源驱动否则会出现加载nouveau模块报错和其他模块无法加载的问题编辑完成后按ctrlx退出" class="heading-element"><span>如果设备中包含NVIDIA显卡，请在进入liveCD的GRUB引导界面时按下键盘上的字母E,进入GRUB的编辑模式。在其linux行的末尾加入nouveau.modeset=0来屏蔽NVIDIA开源驱动。否则会出现加载nouveau模块报错和其他模块无法加载的问题。编辑完成后按CTRL+X退出。</span>
+  <a href="#%e5%a6%82%e6%9e%9c%e8%ae%be%e5%a4%87%e4%b8%ad%e5%8c%85%e5%90%abnvidia%e6%98%be%e5%8d%a1%e8%af%b7%e5%9c%a8%e8%bf%9b%e5%85%a5livecd%e7%9a%84grub%e5%bc%95%e5%af%bc%e7%95%8c%e9%9d%a2%e6%97%b6%e6%8c%89%e4%b8%8b%e9%94%ae%e7%9b%98%e4%b8%8a%e7%9a%84%e5%ad%97%e6%af%8de%e8%bf%9b%e5%85%a5grub%e7%9a%84%e7%bc%96%e8%be%91%e6%a8%a1%e5%bc%8f%e5%9c%a8%e5%85%b6linux%e8%a1%8c%e7%9a%84%e6%9c%ab%e5%b0%be%e5%8a%a0%e5%85%a5nouveaumodeset0%e6%9d%a5%e5%b1%8f%e8%94%bdnvidia%e5%bc%80%e6%ba%90%e9%a9%b1%e5%8a%a8%e5%90%a6%e5%88%99%e4%bc%9a%e5%87%ba%e7%8e%b0%e5%8a%a0%e8%bd%bdnouveau%e6%a8%a1%e5%9d%97%e6%8a%a5%e9%94%99%e5%92%8c%e5%85%b6%e4%bb%96%e6%a8%a1%e5%9d%97%e6%97%a0%e6%b3%95%e5%8a%a0%e8%bd%bd%e7%9a%84%e9%97%ae%e9%a2%98%e7%bc%96%e8%be%91%e5%ae%8c%e6%88%90%e5%90%8e%e6%8c%89ctrlx%e9%80%80%e5%87%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h5><blockquote>
+<p>如有疑问请参考Wiki以下章节：</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E8%8E%B7%E5%8F%96%E5%AE%89%E8%A3%85%E6%98%A0%E5%83%8F"target="_blank" rel="external nofollow noopener noreferrer">获取安装映像</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E6%98%A0%E5%83%8F"target="_blank" rel="external nofollow noopener noreferrer">准备安装映像</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E5%90%AF%E5%8A%A8%E5%88%B0_Live_%E7%8E%AF%E5%A2%83"target="_blank" rel="external nofollow noopener noreferrer">启动到Live环境</a></p>
+</blockquote>
+<h4 id="一验证引导模式--联网--换源" class="heading-element"><span>一、验证引导模式 &amp; 联网 &amp; 换源：</span>
+  <a href="#%e4%b8%80%e9%aa%8c%e8%af%81%e5%bc%95%e5%af%bc%e6%a8%a1%e5%bc%8f--%e8%81%94%e7%bd%91--%e6%8d%a2%e6%ba%90" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ls /sys/firmware/efi/efivars
+</span></span><span class="line"><span class="cl"><span class="c1">#验证引导模式（如果目录不存在，即为Legacy BIOS引导模式；反之，请使用隔壁以UEFI为例的教程）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ iwctl
+</span></span><span class="line"><span class="cl"><span class="c1">#运行iwctl（如果是台式机，可直接跳到ping -c 5 archlinux.org这一步）</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>iwctl<span class="o">]</span><span class="c1"># device list</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#列出WiFi设备（一般为wlan0；这里以wlan0为例）</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>iwctl<span class="o">]</span><span class="c1"># station wlan0 scan</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#扫描网络</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>iwctl<span class="o">]</span><span class="c1"># station wlan0 get-networks</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#列出可用网络</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>iwctl<span class="o">]</span><span class="c1"># station wlan0 connect X</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#连接到X（X改成你可用的WiFi名称并在回车后输入密码且确保密码输入正确）</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>iwctl<span class="o">]</span><span class="c1"># exit</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#退出iwctl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ ping -c <span class="m">5</span> archlinux.org
+</span></span><span class="line"><span class="cl"><span class="c1">#检查网络连接（如果有输出内容，即为联网成功）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reflector --country China --save /etc/pacman.d/mirrorlist
+</span></span><span class="line"><span class="cl"><span class="c1">#换源（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ systemctl stop reflector
+</span></span><span class="line"><span class="cl"><span class="c1">#关闭reflector服务</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/pacman.d/mirrorlist
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/pacman.d/mirrorlist文件，保留自己需要的源（一般推荐使用中科大源或清华源）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ timedatectl status
+</span></span><span class="line"><span class="cl"><span class="c1">#检查服务状态</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如有疑问请参考Wiki以下章节：</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E9%AA%8C%E8%AF%81%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F"target="_blank" rel="external nofollow noopener noreferrer">验证引导模式</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E8%BF%9E%E6%8E%A5%E5%88%B0%E5%9B%A0%E7%89%B9%E7%BD%91"target="_blank" rel="external nofollow noopener noreferrer">连接到因特网</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E9%80%89%E6%8B%A9%E9%95%9C%E5%83%8F"target="_blank" rel="external nofollow noopener noreferrer">选择镜像</a>和<a href="https://wiki.archlinux.org/title/Reflector_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E7%A4%BA%E4%BE%8B"target="_blank" rel="external nofollow noopener noreferrer">reflector</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"target="_blank" rel="external nofollow noopener noreferrer">更新系统时间</a></p>
+</blockquote>
+<h4 id="二分区--挂载" class="heading-element"><span>二、分区 &amp; 挂载：</span>
+  <a href="#%e4%ba%8c%e5%88%86%e5%8c%ba--%e6%8c%82%e8%bd%bd" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>以下分区和挂载相关步骤是以SATA协议硬盘为例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ lsblk
+</span></span><span class="line"><span class="cl"><span class="c1">#查看硬盘名称（一般为sda；这里以sda为例）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ fdisk /dev/sda
+</span></span><span class="line"><span class="cl"><span class="c1">#使用fdisk对sda进行相关操作</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#步骤如下：</span>
+</span></span><span class="line"><span class="cl">Command <span class="o">(</span>m <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: o <span class="c1">#输入o新建MBR分区表</span>
+</span></span><span class="line"><span class="cl">Command <span class="o">(</span>m <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n <span class="c1">#输入n创建新分区</span>
+</span></span><span class="line"><span class="cl">Select <span class="o">(</span>default p<span class="o">)</span>: p <span class="c1">#这里按Enter键创建主分区（如果想创建逻辑扩展分区请输入e）</span>
+</span></span><span class="line"><span class="cl">Partition number <span class="o">(</span>1-4, default 1<span class="o">)</span>: <span class="c1">#这里按Enter键</span>
+</span></span><span class="line"><span class="cl">First sector <span class="o">(</span>2048-X, default 2048<span class="o">)</span>: <span class="c1">#这里按Enter键</span>
+</span></span><span class="line"><span class="cl">Last sector, +/-sectors or +/-size<span class="o">{</span>K,M,G,T,P<span class="o">}</span> <span class="o">(</span>2048-X, default X<span class="o">)</span>: +10G <span class="c1">#输入+10G</span>
+</span></span><span class="line"><span class="cl">Command <span class="o">(</span>m <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: t <span class="c1">#输入t更改分区类型</span>
+</span></span><span class="line"><span class="cl">Hex code or <span class="nb">alias</span> <span class="o">(</span><span class="nb">type</span> L to list all<span class="o">)</span>: <span class="m">82</span> <span class="c1">#输入82，创建swap分区</span>
+</span></span><span class="line"><span class="cl">Command <span class="o">(</span>m <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n <span class="c1">#输入n创建新分区，然后一直按Enter键，把剩下的空间全部分配给/分区</span>
+</span></span><span class="line"><span class="cl">Command <span class="o">(</span>m <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: w <span class="c1">#输入w写入 </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ lsblk
+</span></span><span class="line"><span class="cl"><span class="c1">#查看分区结构是否正确</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ mkfs.btrfs -L ARCH /dev/sda2
+</span></span><span class="line"><span class="cl"><span class="c1">#将sda2格式化为btrfs，创建标签为ARCH（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ mkswap -L SWAP /dev/sda1
+</span></span><span class="line"><span class="cl"><span class="c1">#将sda1设置为swap，创建标签为SWAP（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ mount -t btrfs -o <span class="nv">compress</span><span class="o">=</span>zstd /dev/sda2 /mnt
+</span></span><span class="line"><span class="cl"><span class="c1">#将sda2挂载到/mnt目录并创建btrfs子卷</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#步骤如下：</span>
+</span></span><span class="line"><span class="cl">btrfs subvolume create /mnt/@ <span class="c1">#创建/目录的btrfs子卷</span>
+</span></span><span class="line"><span class="cl">btrfs subvolume create /mnt/@root <span class="c1">#创建/root目录的btrfs子卷</span>
+</span></span><span class="line"><span class="cl">btrfs subvolume create /mnt/@home <span class="c1">#创建/home目录的btrfs子卷</span>
+</span></span><span class="line"><span class="cl">umount /mnt <span class="c1">#卸载/mnt目录</span>
+</span></span><span class="line"><span class="cl">mount -t btrfs -o <span class="nv">subvol</span><span class="o">=</span>/@,compress<span class="o">=</span>zstd /dev/sda2 /mnt <span class="c1">#挂载/目录的btrfs子卷到/mnt目录</span>
+</span></span><span class="line"><span class="cl">mkdir /mnt/root <span class="c1">#创建/mnt/root目录</span>
+</span></span><span class="line"><span class="cl">mount -t btrfs -o <span class="nv">subvol</span><span class="o">=</span>/@root,compress<span class="o">=</span>zstd /dev/sda2 /mnt/root <span class="c1">#挂载/root目录的btrfs子卷到/mnt/root目录</span>
+</span></span><span class="line"><span class="cl">mkdir /mnt/home <span class="c1">#创建/mnt/home目录</span>
+</span></span><span class="line"><span class="cl">mount -t btrfs -o <span class="nv">subvol</span><span class="o">=</span>/@home,compress<span class="o">=</span>zstd /dev/sda2 /mnt/home <span class="c1">#挂载/home目录的btrfs子卷到/mnt/home目录</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ swapon /dev/sda1
+</span></span><span class="line"><span class="cl"><span class="c1">#激活sda1为交换分区</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ lsblk -f
+</span></span><span class="line"><span class="cl"><span class="c1">#查看相应分区的文件系统及挂载是否正确</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在pacstrap之前，请再检查一下/etc/pacman.d/mirrorlist文件。例如：cat /etc/pacman.d/mirrorlist或vim /etc/pacman.d/mirrorlist。总之，检查一下这个文件即可。</p>
+<blockquote>
+<p>如有疑问请参考Wiki以下章节：</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E5%BB%BA%E7%AB%8B%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA"target="_blank" rel="external nofollow noopener noreferrer">建立硬盘分区</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%88%86%E5%8C%BA"target="_blank" rel="external nofollow noopener noreferrer">格式化分区</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"target="_blank" rel="external nofollow noopener noreferrer">挂载分区</a></p>
+</blockquote>
+<h4 id="三安装基本的包--初步配置" class="heading-element"><span>三、安装基本的包 &amp; 初步配置：</span>
+  <a href="#%e4%b8%89%e5%ae%89%e8%a3%85%e5%9f%ba%e6%9c%ac%e7%9a%84%e5%8c%85--%e5%88%9d%e6%ad%a5%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ pacstrap -K /mnt linux linux-firmware sof-firmware linux-headers base base-devel vim bash-completion networkmanager dosfstools btrfs-progs exfatprogs ntfs-3g pacman-contrib
+</span></span><span class="line"><span class="cl"><span class="c1">#安装必要的软件包（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ genfstab -U /mnt &gt; /mnt/etc/fstab
+</span></span><span class="line"><span class="cl"><span class="c1">#生成/mnt/etc/fstab文件（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ cat /mnt/etc/fstab
+</span></span><span class="line"><span class="cl"><span class="c1">#查看/mnt/etc/fstab文件是否正确（如果不正确，请重新分区、挂载、pacstrap）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ arch-chroot /mnt
+</span></span><span class="line"><span class="cl"><span class="c1">#进入目标系统</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S grub amd-ucode intel-ucode
+</span></span><span class="line"><span class="cl"><span class="c1">#安装grub &amp; amd-ucode或intel-ucode（AMD的CPU安装amd-ucode，intel的CPU安装intel-ucode）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ lsblk
+</span></span><span class="line"><span class="cl"><span class="c1">#查看硬盘名称</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ grub-install /dev/sda
+</span></span><span class="line"><span class="cl"><span class="c1">#将grub写入sda</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/default/grub
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/default/grub文件，将GRUB_CMDLINE_LINUX=&#34;&#34;修改为GRUB_CMDLINE_LINUX=&#34; nouveau.modeset=0&#34;（没有nvidia显卡可跳过）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span class="line"><span class="cl"><span class="c1">#生成/boot/grub/grub.cfg文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ systemctl <span class="nb">enable</span> NetworkManager
+</span></span><span class="line"><span class="cl"><span class="c1">#开机自启NetworkManager服务（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ passwd root
+</span></span><span class="line"><span class="cl"><span class="c1">#设置root密码（在回车后输入密码且密码不显示，输入完成后回车，再输入一遍且密码同样不显示，输入完成后再回车，即可完成密码设置）</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如有疑问请参考Wiki以下章节：</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E5%AE%89%E8%A3%85%E5%BF%85%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85"target="_blank" rel="external nofollow noopener noreferrer">安装必需的软件包</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Fstab"target="_blank" rel="external nofollow noopener noreferrer">Fstab</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Chroot"target="_blank" rel="external nofollow noopener noreferrer">Chroot</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"target="_blank" rel="external nofollow noopener noreferrer">安装引导程序</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Root_%E5%AF%86%E7%A0%81"target="_blank" rel="external nofollow noopener noreferrer">Root密码</a></p>
+</blockquote>
+<h4 id="四退出目标系统" class="heading-element"><span>四、退出目标系统：</span>
+  <a href="#%e5%9b%9b%e9%80%80%e5%87%ba%e7%9b%ae%e6%a0%87%e7%b3%bb%e7%bb%9f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#退出目标系统</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ umount -R /mnt
+</span></span><span class="line"><span class="cl"><span class="c1">#卸载/mnt目录</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启并登陆root</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="五系统配置" class="heading-element"><span>五、系统配置：</span>
+  <a href="#%e4%ba%94%e7%b3%bb%e7%bb%9f%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ nmtui
+</span></span><span class="line"><span class="cl"><span class="c1">#运行nmtui（根据图形界面提示进行联网操作即可；台式机可跳过）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ ping -c <span class="m">5</span> archlinux.org
+</span></span><span class="line"><span class="cl"><span class="c1">#检查网络连接（如果有输出内容，即为联网成功）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/hostname
+</span></span><span class="line"><span class="cl"><span class="c1">#创建/etc/hostname文件，加入以下内容：</span>
+</span></span><span class="line"><span class="cl">arch
+</span></span><span class="line"><span class="cl"><span class="c1">#将主机名设置为arch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/hosts
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/hosts文件，在末尾加入以下内容：</span>
+</span></span><span class="line"><span class="cl">127.0.0.1 localhost
+</span></span><span class="line"><span class="cl">::1 localhost
+</span></span><span class="line"><span class="cl">127.0.1.1 arch.localdomain arch
+</span></span><span class="line"><span class="cl"><span class="c1">#配置hosts文件，映射IP地址和主机名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span class="o">&amp;&amp;</span> hwclock --systohc
+</span></span><span class="line"><span class="cl"><span class="c1">#设置时区为上海（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/environment
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/environment文件，在开头加入以下内容：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span>/bin/vim
+</span></span><span class="line"><span class="cl"><span class="c1">#设置vim为默认文本编辑器（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启并登陆root</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ useradd -m -G wheel arch
+</span></span><span class="line"><span class="cl"><span class="c1">#添加普通用户，用户名为arch并将arch添加到wheel组中</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ passwd arch
+</span></span><span class="line"><span class="cl"><span class="c1">#设置arch密码（注意事项请参考第三阶段的设置root密码部分）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ id arch
+</span></span><span class="line"><span class="cl"><span class="c1">#查看用户组是否添加到相应的组中</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ visudo
+</span></span><span class="line"><span class="cl"><span class="c1">#设置用户权限，删除%wheel ALL=(ALL:ALL) ALL前面的#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启并登陆root</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/locale.gen
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/locale.gen文件，删除en_US.UTF-8 UTF-8和zh_CN.UTF-8 UTF-8前面的#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ locale-gen
+</span></span><span class="line"><span class="cl"><span class="c1">#生成语言</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/locale.conf
+</span></span><span class="line"><span class="cl"><span class="c1">#创建/etc/locale.conf文件，加入以下内容（如果文件已经存在，则删除文件中原有的内容）：</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LANG</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#设置语言为en_US.UTF-8，不要不要不要设置为zh_CN.UTF-8（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ vim /etc/pacman.conf
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/pacman.conf文件，删除[multilib]区域的所有#（开启32位支持）并在末尾加入以下内容：</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>archlinuxcn<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Server</span> <span class="o">=</span> https://mirrors.ustc.edu.cn/archlinuxcn/<span class="nv">$arch</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#添加archlinuxcn源（一般推荐使用中科大源；注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -Sy
+</span></span><span class="line"><span class="cl"><span class="c1">#同步数据</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S archlinuxcn-keyring
+</span></span><span class="line"><span class="cl"><span class="c1">#安装archlinuxcn-keyring</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ rm -rf /etc/pacman.d/gnupg <span class="o">&amp;&amp;</span> pacman-key --init <span class="o">&amp;&amp;</span> pacman-key --populate archlinux <span class="o">&amp;&amp;</span> pacman-key --populate archlinuxcn
+</span></span><span class="line"><span class="cl"><span class="c1">#生成新的密钥环并重新签署密钥（安装archlinuxcn-keyring不报错时可跳过）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -Sy
+</span></span><span class="line"><span class="cl"><span class="c1">#再次同步数据</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S mesa lib32-mesa xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon xf86-video-ati opencl-mesa lib32-opencl-mesa opencl-headers
+</span></span><span class="line"><span class="cl"><span class="c1">#安装AMD核显相关驱动</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S mesa lib32-mesa xf86-video-intel vulkan-intel lib32-vulkan-intel opencl-mesa lib32-opencl-mesa opencl-headers
+</span></span><span class="line"><span class="cl"><span class="c1">#安装intel核显相关驱动</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S pipewire lib32-pipewire pipewire-media-session pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack
+</span></span><span class="line"><span class="cl"><span class="c1">#安装声音相关驱动</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ systemctl <span class="nb">enable</span> bluetooth
+</span></span><span class="line"><span class="cl"><span class="c1">#开机自启bluetooth服务</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启并登陆root</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><del>So,Nvidia:FuckYou!</del></p>
+<blockquote>
+<p>如有疑问请参考Wiki以下内容：</p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"target="_blank" rel="external nofollow noopener noreferrer">网络配置</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E6%97%B6%E5%8C%BA"target="_blank" rel="external nofollow noopener noreferrer">时区</a></p>
+<p><a href="https://wiki.archlinux.org/title/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E6%9C%AC%E5%9C%B0%E5%8C%96"target="_blank" rel="external nofollow noopener noreferrer">本地化</a></p>
+</blockquote>
+<h4 id="六安装桌面环境" class="heading-element"><span>六、安装桌面环境：</span>
+  <a href="#%e5%85%ad%e5%ae%89%e8%a3%85%e6%a1%8c%e9%9d%a2%e7%8e%af%e5%a2%83" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ pacman -S ttf-dejavu ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-emoji-blob noto-fonts-extra wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei ttf-arphic-extra ttf-arphic-ukai ttf-arphic-uming adobe-source-code-pro-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-tw-fonts adobe-source-han-serif-jp-fonts adobe-source-han-serif-tw-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-kr-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-kr-fonts adobe-source-sans-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-otc-fonts adobe-source-han-serif-hk-fonts adobe-source-han-serif-otc-fonts adobe-source-serif-fonts
+</span></span><span class="line"><span class="cl"><span class="c1">#安装字体（请根据需要自行补充，这里只安装常用的包）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ pacman -S plasma-meta konsole dolphin
+</span></span><span class="line"><span class="cl"><span class="c1">#安装KDE桌面及软件（这里只安装最必要的包，如果想完整使用KDE的各种功能请根据对应提示安装需要的包）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ systemctl <span class="nb">enable</span> sddm
+</span></span><span class="line"><span class="cl"><span class="c1">#开机自启sddm服务</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2桌面中文环境的设置--输入法的安装及配置" class="heading-element"><span>2.桌面中文环境的设置 &amp; 输入法的安装及配置——</span>
+  <a href="#2%e6%a1%8c%e9%9d%a2%e4%b8%ad%e6%96%87%e7%8e%af%e5%a2%83%e7%9a%84%e8%ae%be%e7%bd%ae--%e8%be%93%e5%85%a5%e6%b3%95%e7%9a%84%e5%ae%89%e8%a3%85%e5%8f%8a%e9%85%8d%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h4 id="一中文环境的设置" class="heading-element"><span>一、中文环境的设置：</span>
+  <a href="#%e4%b8%80%e4%b8%ad%e6%96%87%e7%8e%af%e5%a2%83%e7%9a%84%e8%ae%be%e7%bd%ae" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>System Settings&raquo;Regional Settings&raquo;Language&raquo;Change Language，<strong>简体中文</strong>&raquo;Apply。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果以上方法出现中英文混杂的情况可尝试以下方法（推荐）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ vim .xprofile
+</span></span><span class="line"><span class="cl"><span class="c1">#创建~/.xprofile文件，加入以下内容：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>zh_CN.UTF-8
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:en_US
+</span></span><span class="line"><span class="cl"><span class="c1">#设置X环境为中文（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="二fcitx-5-输入法的安装" class="heading-element"><span>二、Fcitx 5 输入法的安装：</span>
+  <a href="#%e4%ba%8cfcitx-5-%e8%be%93%e5%85%a5%e6%b3%95%e7%9a%84%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo pacman -S fcitx5-im fcitx5-chinese-addons
+</span></span><span class="line"><span class="cl"><span class="c1">#安装fcitx5主体、配置工具、输入法引擎及中文输入法模块</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ sudo vim /etc/environment
+</span></span><span class="line"><span class="cl"><span class="c1">#编辑/etc/environment文件，在末尾加入以下内容：</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GTK_IM_MODULE</span><span class="o">=</span>fcitx
+</span></span><span class="line"><span class="cl"><span class="nv">QT_IM_MODULE</span><span class="o">=</span>fcitx
+</span></span><span class="line"><span class="cl"><span class="nv">SDL_IM_MODULE</span><span class="o">=</span>fcitx
+</span></span><span class="line"><span class="cl"><span class="nv">XMODIFIERS</span><span class="o">=</span>@im<span class="o">=</span>fcitx
+</span></span><span class="line"><span class="cl"><span class="c1">#配置环境变量（注意大小写）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+</span></span><span class="line"><span class="cl"><span class="c1">#安装词库</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ reboot
+</span></span><span class="line"><span class="cl"><span class="c1">#重启</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="end想再看一遍本教程吗那就请在终端中输入sudo-rm--rf-你会回来的" class="heading-element"><span>END~~（想再看一遍本教程吗？那就请在终端中输入sudo rm -rf /*，你会回来的。）~~</span>
+  <a href="#end%e6%83%b3%e5%86%8d%e7%9c%8b%e4%b8%80%e9%81%8d%e6%9c%ac%e6%95%99%e7%a8%8b%e5%90%97%e9%82%a3%e5%b0%b1%e8%af%b7%e5%9c%a8%e7%bb%88%e7%ab%af%e4%b8%ad%e8%be%93%e5%85%a5sudo-rm--rf-%e4%bd%a0%e4%bc%9a%e5%9b%9e%e6%9d%a5%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><h1 id="by-microsoftxiaoice" class="heading-element"><span>By MicrosoftXiaoice</span>
+  <a href="#by-microsoftxiaoice" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-07-18 16:17:56">更新于 2024-07-18&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/how-to-install-archbiosxiaoice/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/" data-title="Arch Linux安装教程(以Legacy BIOS为例)" data-hashtags="Guides,Arch Linux"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/" data-hashtag="Guides"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://pilihu2022.github.io/posts/how-to-install-archbiosxiaoice/" data-title="Arch Linux安装教程(以Legacy BIOS为例)"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/guides/" class="post-tag" title="标签 - Guides">Guides</a><a href="/tags/arch-linux/" class="post-tag" title="标签 - Arch Linux">Arch Linux</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav">
+      <a href="/posts/hyprland-guide-install-other-programs/" class="post-nav-item" rel="next" title="Hyprland指南(安装其他软件)">Hyprland指南(安装其他软件)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.129.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">PILIHU(Spark)</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"version":"v0.3.8"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>
