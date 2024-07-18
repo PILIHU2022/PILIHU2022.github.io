@@ -117,22 +117,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-verson: latest
+          hugo-version: '0.129.0'
           extended: true
       - name: Hugo Build
         run: |
-          git submodule update
+          git submodule update --init --remote --merge themes/FixIt
           hugo
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./public
-      #     cname: <User-name>.github.io
+      #     cname: pilihu2022.github.io
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
