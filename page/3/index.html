@@ -12,7 +12,7 @@
 <meta name="author-link" content="">
 <meta name="description" content="" />
   <meta itemprop="name" content="PILIHU&#39;s Blog">
-  <meta itemprop="datePublished" content="2024-02-12T22:18:02+00:00">
+  <meta itemprop="datePublished" content="2024-07-18T12:00:59+00:00">
   <meta itemprop="dateModified" content="2024-07-18T17:39:15+08:00"><meta property="og:url" content="https://pilihu2022.github.io/">
   <meta property="og:site_name" content="PILIHU&#39;s Blog">
   <meta property="og:title" content="PILIHU&#39;s Blog">
@@ -101,7 +101,15 @@
       </ul>
     </nav>
   </div>
-</header><main class="container"><div class="page home posts"><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/hyprland-guide-install-useful-programs/">Hyprland指南(安装常用软件)</a>
+</header><main class="container"><div class="page home posts"><article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/how-to-install-archbios/">Arch Linux安装教程(BIOS)</a>
+  </h2><div class="post-meta"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span>&nbsp;<span class="post-publish" title='2023-08-15 13:18:20'>发布于 <time datetime="2023-08-15">2023-08-15</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/arch-linux/" class="post-category" title="分类 - Arch Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Arch Linux</a></span></div><div class="content">本文介绍Arch Linux安装，以BIOS方式为例 本文所输入的命令均可用Tab键补全 前言 Arch Linux官方安装指南 Arch Linux镜像下载地址USTC，2023.07.01 注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）注意： Arch Linux 安装镜像不支持安全启动（Secure Boot）,详见wiki 前面说了一堆废话现在开始实操 开始安装 启动后，先禁用reflector服务
+1 sudo systemctl stop reflector 这个服务主要是从Arch Linux Mirror Status 页面获取最新的镜像列表，然后筛选出最新的镜像并按速度排序，最后将结果写入到 /etc/pacman.d/mirrorlist 文件。 但它很鸡肋，手动添加镜像站会更好 更多关于该服务请见Wiki
+添加的镜像站主要是USTC的镜像站或者清华镜像站 如果不想手动安装Arch的话可以使用archinstall: 1 archinstall 详见Wiki
+连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
+配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。</div><div class="post-footer">
+    <a href="/posts/how-to-install-archbios/">阅读全文</a><div class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/guides/' class="post-tag">Guides</a><a href='/tags/arch-linux/' class="post-tag">Arch Linux</a></div></div>
+</article>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h2 class="single-title" itemprop="name headline"><a href="/posts/hyprland-guide-install-useful-programs/">Hyprland指南(安装常用软件)</a>
   </h2><div class="post-meta"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span>&nbsp;<span class="post-publish" title='2023-08-15 10:06:00'>发布于 <time datetime="2023-08-15">2023-08-15</time></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/guide/" class="post-category" title="分类 - Guide"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Guide</a></span></div><div class="content">Hyprland指南(安装常用软件) 安装VScode 全称为Visual Studio CodeAUR，由于名字太长所以被人们简化成VSC(吧？)不用管这些，我们只是用这个来码代码(屎山)
 1 paru -S visual-studio-code-bin 然后就跟着VSC的提示来安装中文语言包，装好就不用我说了吧？ 如果嫌调字体麻烦的话可以来到我的配置仓库，在里面的settings(VSC).json中，有一个//设置字体，把里面的内容复制到你的VSC配置文件中，路径如下: ~/.config/code/User/ 字体的话需要安装如下:(自己配置的话可跳过)
 1 paru -S ttf-cascadia-code nerd-fonts-completle 鸿蒙黑体也是可以的，但是在系统上使用似乎会出现有的字体大，有的字体小的问题，我没有进一步研究。 只记得要装这两个，还有些忘了 微软雅黑的话可以换成别的字体

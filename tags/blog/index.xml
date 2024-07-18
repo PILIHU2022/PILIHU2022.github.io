@@ -4,7 +4,28 @@
     <link>https://pilihu2022.github.io/tags/blog/</link>
     <description>Blog - 标签 | PILIHU&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator><language>简体中文</language><managingEditor>2812167783@qq.com (PILIHU(Spark))</managingEditor>
-      <webMaster>2812167783@qq.com (PILIHU(Spark))</webMaster><lastBuildDate>Fri, 12 Jan 2024 22:49:09 &#43;0000</lastBuildDate><atom:link href="https://pilihu2022.github.io/tags/blog/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>2812167783@qq.com (PILIHU(Spark))</webMaster><lastBuildDate>Thu, 18 Jul 2024 12:00:59 &#43;0000</lastBuildDate><atom:link href="https://pilihu2022.github.io/tags/blog/" rel="self" type="application/rss+xml" /><item>
+  <title>使用Hugo搭建Blog</title>
+  <link>https://pilihu2022.github.io/posts/hugo-blog/</link>
+  <pubDate>Thu, 18 Jul 2024 12:00:59 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>https://pilihu2022.github.io/posts/hugo-blog/</guid>
+  <description><![CDATA[Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.]]></description>
+</item>
+<item>
   <title>实现自动更新Blog(GitHub Actions&#43;Hexo deploy)</title>
   <link>https://pilihu2022.github.io/posts/auto-update-bloggithub-actions-hexo-deploy/</link>
   <pubDate>Fri, 12 Jan 2024 22:49:09 &#43;0000</pubDate>

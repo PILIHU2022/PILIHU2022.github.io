@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="简体中文">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>使用Hugo搭建Blog - PILIHU&#39;s Blog</title><meta name="author" content="PILIHU(Spark)">
+<meta name="author-link" content="">
+<meta name="description" content="Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo." /><meta name="keywords" content='66, 108, 111, 103' />
+  <meta itemprop="name" content="使用Hugo搭建Blog">
+  <meta itemprop="description" content="Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.">
+  <meta itemprop="datePublished" content="2024-07-18T12:00:59+00:00">
+  <meta itemprop="dateModified" content="2024-07-18T17:39:15+08:00">
+  <meta itemprop="wordCount" content="264">
+  <meta itemprop="keywords" content="Blog"><meta property="og:url" content="https://pilihu2022.github.io/posts/hugo-blog/">
+  <meta property="og:site_name" content="PILIHU&#39;s Blog">
+  <meta property="og:title" content="使用Hugo搭建Blog">
+  <meta property="og:description" content="Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.">
+  <meta property="og:locale" content="简体中文">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-18T12:00:59+00:00">
+    <meta property="article:modified_time" content="2024-07-18T17:39:15+08:00">
+    <meta property="article:tag" content="Blog">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="使用Hugo搭建Blog">
+  <meta name="twitter:description" content="Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="https://pilihu2022.github.io/posts/hugo-blog/" /><link rel="prev" href="https://pilihu2022.github.io/posts/auto-login-arch/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "使用Hugo搭建Blog",
+    "inLanguage": "简体中文",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/pilihu2022.github.io\/posts\/hugo-blog\/"
+    },"genre": "posts","keywords": "66, 108, 111, 103","wordcount":  264 ,
+    "url": "https:\/\/pilihu2022.github.io\/posts\/hugo-blog\/","datePublished": "2024-07-18T12:00:59+00:00","dateModified": "2024-07-18T17:39:15+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "PILIHU(Spark)"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/archives/"
+                
+                
+              ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="PILIHU&#39;s Blog"><span class="header-title-text">PILIHU&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/archives/"
+                  
+                  
+                ><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> Archives</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                ><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                ><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> Tags</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>使用Hugo搭建Blog</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/blog/" class="post-category" title="分类 - Blog"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Blog</a></span></div><div class="post-meta-line"><span title="发布于 2024-07-18 12:00:59"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="更新于 2024-07-18 17:39:15"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="264 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装主题">安装主题</a>
+      <ul>
+        <li><a href="#博客是写给自己看的"><del>博客是写给自己看的</del></a></li>
+        <li><a href="#这里以fixit主题为例">这里以<code>FixIt</code>主题为例</a>
+          <ul>
+            <li><a href="#安装主题-1">安装主题</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#写文章">写文章</a>
+      <ul>
+        <li><a href="#使用草稿">使用草稿</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#mark注意事项mark"><mark>注意事项</mark></a></li>
+    <li><a href="#使用github-pages">使用GitHub Pages</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h1 id="hugo介绍" class="heading-element"><span>Hugo介绍</span>
+  <a href="#hugo%e4%bb%8b%e7%bb%8d" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><blockquote>
+<p>Hugo是世界上最快的构建网页的框架<br>
+——<a href="https://gohugo.io/"target="_blank" rel="external nofollow noopener noreferrer"> Hugo官网 </a></p>
+</blockquote>
+<h1 id="安装hugo" class="heading-element"><span>安装Hugo</span>
+  <a href="#%e5%ae%89%e8%a3%85hugo" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><p>Arch Linux：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo pacman -S hugo</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其余发行版请自行使用包管理器搜索并安装</p>
+<h1 id="开始使用" class="heading-element"><span>开始使用</span>
+  <a href="#%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><p>首先创建一个空白网站</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo new site &lt;Site_name&gt;</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition note open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">这个操作会创建一个文件夹，包含Hugo的默认文件</div>
+    </div>
+  </div>
+<h2 id="安装主题" class="heading-element"><span>安装主题</span>
+  <a href="#%e5%ae%89%e8%a3%85%e4%b8%bb%e9%a2%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h3 id="博客是写给自己看的" class="heading-element"><span><del>博客是写给自己看的</del></span>
+  <a href="#%e5%8d%9a%e5%ae%a2%e6%98%af%e5%86%99%e7%bb%99%e8%87%aa%e5%b7%b1%e7%9c%8b%e7%9a%84" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>所以挑选一个自己心仪的主题很重要。<br>
+你可以在Hugo的<a href="https://themes.gohugo.io"target="_blank" rel="external nofollow noopener noreferrer">主题网站</a>中查找
+<div class="details admonition tip open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-lightbulb fa-fw" aria-hidden="true"></i>技巧<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:)</div>
+    </div>
+  </div>
+然后你可以点击<code>Download</code>按钮，以跳转至GitHub页面，查看<code>README.md</code>以安装主题。</p>
+<h3 id="这里以fixit主题为例" class="heading-element"><span>这里以<code>FixIt</code>主题为例</span>
+  <a href="#%e8%bf%99%e9%87%8c%e4%bb%a5fixit%e4%b8%bb%e9%a2%98%e4%b8%ba%e4%be%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p><a href="https://fixit.lruihao.cn/zh-cn/"target="_blank" rel="external nofollow noopener noreferrer">FixIt主题网站</a>，你可以查看文档<br>
+转至<a href="https://github.com/hugo-fixit/FixIt"target="_blank" rel="external nofollow noopener noreferrer">GitHub页面</a>，你可以提出issue和pull request以解决问题和完善文档\</p>
+<h4 id="安装主题-1" class="heading-element"><span>安装主题</span>
+  <a href="#%e5%ae%89%e8%a3%85%e4%b8%bb%e9%a2%98-1" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h4><p>切换到博客目录，执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init</span></span></code></pre></td></tr></table>
+</div>
+</div><p>来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站）
+将[FixIt]主题作为Git子模块添加到你的项目中的<code>themes</code>目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt</span></span></code></pre></td></tr></table>
+</div>
+</div><p>备份目录中的<code>hugo.toml</code>文件，并将主题中的<code>hugo.toml</code>文件复制出来</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在站点配置文件中添加一行，指定当前主题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在站点配置文件中添加一行，指定默认的内容语言。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.toml</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后启动Hugo开发服务器以查看站点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo server</span></span></code></pre></td></tr></table>
+</div>
+</div><p><del>Hugo，启动！</del></p>
+<h2 id="写文章" class="heading-element"><span>写文章</span>
+  <a href="#%e5%86%99%e6%96%87%e7%ab%a0" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>你需要将Markdown文章放入<code>content/posts</code>文件夹中，然后执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo</span></span></code></pre></td></tr></table>
+</div>
+</div><p>来构建网站
+<div class="details admonition note open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">这并不会在本地启动开发服务器，而是将构建后的网页文件放在<code>public</code>文件夹下</div>
+    </div>
+  </div></p>
+<h3 id="使用草稿" class="heading-element"><span>使用草稿</span>
+  <a href="#%e4%bd%bf%e7%94%a8%e8%8d%89%e7%a8%bf" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>在Hugo中，你可以使用<code>draft</code>参数来表示该文章是草稿</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: 我的第一篇文章
+</span></span><span class="line"><span class="cl">date: 2024-03-01T17:10:04+08:00
+</span></span><span class="line"><span class="cl">draft: true
+</span></span><span class="line"><span class="cl"><span class="gh"># ...
+</span></span></span><span class="line"><span class="cl"><span class="gh"></span>---</span></span></code></pre></td></tr></table>
+</div>
+</div><p>若想连草稿一起构建，请执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo -D</span></span></code></pre></td></tr></table>
+</div>
+</div><p>同理，也可以在开发服务器中使用<code>-D</code>。</p>
+<h1 id="使用github-actions实现自动部署博客" class="heading-element"><span>使用GitHub Actions实现自动部署博客</span>
+  <a href="#%e4%bd%bf%e7%94%a8github-actions%e5%ae%9e%e7%8e%b0%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2%e5%8d%9a%e5%ae%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1><p><div class="details admonition note open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~
+Cloudflare Pages所提供的Hugo版本落后，为<code>0.118</code>版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！</div>
+    </div>
+  </div>
+首先，在GitHub中新建博客仓库，命名为<code>&lt;User-name&gt;.github.io</code>
+在本地Git中添加远程仓库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote add origin https://github.com/&lt;User-name&gt;/&lt;User-name&gt;.github.io.git</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后新建文件夹</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir .github/workflows</span></span></code></pre></td></tr></table>
+</div>
+</div><p>新建一个YAML文件，文件名随意，输入以下内容
+<div class="details admonition note open">
+    <div class="details-summary admonition-title">
+      <i class="icon fa-solid fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fa-solid fa-angle-right fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">若使用以下代码，请认真看代码后的注意事项！</div>
+    </div>
+  </div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 使用GitHub Actions自动部署Hugo博客</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hugo-Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout repo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.129.0&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hugo Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          git submodule update --init --remote --merge themes/FixIt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          hugo</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - name: Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#   uses: peaceiris/actions-gh-pages@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#   with:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#     github_token: ${{ secrets.GITHUB_TOKEN }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#     publish_dir: ./public</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#     cname: pilihu2022.github.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">JamesIves/github-pages-deploy-action@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">gh-pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">folder</span><span class="p">:</span><span class="w"> </span><span class="l">public</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mark注意事项mark" class="heading-element"><span><mark>注意事项</mark></span>
+  <a href="#mark%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9mark" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><ol>
+<li>在<code>branches</code>下的<code>hugo</code>，需修改为你存放博客的分支</li>
+<li>注释的代码可删除，也可使用，其中的<code>github_token</code>不需要理会，GitHub Action的机器会自动生成</li>
+<li>两个<code>Deploy</code>任选其一即可，不要重复使用！</li>
+<li>若没有在GitHub中找到Actions的选项，请自行搜索‘GitHub如何开启Actions’</li>
+</ol>
+<h2 id="使用github-pages" class="heading-element"><span>使用GitHub Pages</span>
+  <a href="#%e4%bd%bf%e7%94%a8github-pages" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>在<code>Settings</code> &gt; <code>Pages</code>，在<code>Source</code>中选择<code>Deploy from a branch</code>，随后选择<code>gh_pages</code>，点击<code>Save</code>按钮，稍等片刻即可看见看见顶栏有提示：
+<code>Your site is live at https://&lt;User-name&gt;.github.io/</code></p>
+<h1 id="结束祝各位部署github-actions时不报错报错可联系mailto2812167783qqcom" class="heading-element"><span>结束，祝各位部署GitHub Actions时不报错，报错可<a href="mailto:2812167783@qq.com"target="_blank" rel="external nofollow noopener noreferrer">联系</a></span>
+  <a href="#%e7%bb%93%e6%9d%9f%e7%a5%9d%e5%90%84%e4%bd%8d%e9%83%a8%e7%bd%b2github-actions%e6%97%b6%e4%b8%8d%e6%8a%a5%e9%94%99%e6%8a%a5%e9%94%99%e5%8f%af%e8%81%94%e7%b3%bbmailto2812167783qqcom" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h1></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-07-18 17:39:15">更新于 2024-07-18&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/hugo-blog/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://pilihu2022.github.io/posts/hugo-blog/" data-title="使用Hugo搭建Blog" data-hashtags="66,108,111,103"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://pilihu2022.github.io/posts/hugo-blog/" data-hashtag="66"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://pilihu2022.github.io/posts/hugo-blog/" data-title="使用Hugo搭建Blog"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/blog/" class="post-tag" title="标签 - Blog">Blog</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/auto-login-arch/" class="post-nav-item" rel="prev" title="Arch Linux自动登录"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Arch Linux自动登录</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.129.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">PILIHU(Spark)</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"version":"v0.3.8"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

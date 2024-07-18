@@ -2,13 +2,16 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
+      <loc>https://pilihu2022.github.io/tags/blog/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://pilihu2022.github.io/categories/blog/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://pilihu2022.github.io/categories/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://pilihu2022.github.io/tags/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://pilihu2022.github.io/posts/hugo-blog/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/tags/arch-linux/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/categories/arch-linux/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/auto-login-arch/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://pilihu2022.github.io/categories/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://pilihu2022.github.io/tags/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/tags/cloudflare/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/categories/%E7%99%BD%E5%AB%96/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/get-cloudflare-node/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -22,7 +25,6 @@
       <loc>https://pilihu2022.github.io/categories/clash/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/use-clash-meta/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/request-cloudflare-warp/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://pilihu2022.github.io/tags/blog/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/auto-update-bloggithub-actions-hexo-deploy/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/posts/auto-update-bloggithub-actions-actions-gh-page/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://pilihu2022.github.io/tags/happy-new-year/</loc><lastmod>2024-07-18T17:39:15&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
