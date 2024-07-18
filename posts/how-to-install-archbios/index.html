@@ -19,7 +19,7 @@
 连接网络 1 ip link 要连接到网络： 有线以太网 —— 连接网线。 WiFi —— 使用 iwctl 验证无线网络。 移动宽带调制解调器（移动网卡） - 使用 mmcli 实用程序连接到移动网络。
 配置网络连接： DHCP：对于有线以太网、无线局域网（WLAN）和无线广域网（WWAN）网络接口来说，动态 IP 地址和 DNS 服务器分配（由 systemd-networkd 和 systemd-resolved 提供功能）能够开箱即用。 静态 IP 地址：按照静态 IP 地址进行操作。">
   <meta itemprop="datePublished" content="2023-08-15T13:18:20+00:00">
-  <meta itemprop="dateModified" content="2024-07-18T17:39:15+08:00">
+  <meta itemprop="dateModified" content="2024-07-18T23:44:34+08:00">
   <meta itemprop="wordCount" content="497">
   <meta itemprop="keywords" content="Guides,Arch Linux"><meta property="og:url" content="https://pilihu2022.github.io/posts/how-to-install-archbios/">
   <meta property="og:site_name" content="PILIHU&#39;s Blog">
@@ -33,7 +33,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-08-15T13:18:20+00:00">
-    <meta property="article:modified_time" content="2024-07-18T17:39:15+08:00">
+    <meta property="article:modified_time" content="2024-07-18T23:44:34+08:00">
     <meta property="article:tag" content="Guides">
     <meta property="article:tag" content="Arch Linux">
 
@@ -59,7 +59,7 @@
       "@type": "WebPage",
       "@id": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbios\/"
     },"genre": "posts","keywords": "Guides, Arch Linux","wordcount":  497 ,
-    "url": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbios\/","datePublished": "2023-08-15T13:18:20+00:00","dateModified": "2024-07-18T17:39:15+08:00","publisher": {
+    "url": "https:\/\/pilihu2022.github.io\/posts\/how-to-install-archbios\/","datePublished": "2023-08-15T13:18:20+00:00","dateModified": "2024-07-18T23:44:34+08:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -136,7 +136,7 @@
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Arch Linux安装教程(BIOS)</span>
       </h1></div><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/arch-linux/" class="post-category" title="分类 - Arch Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Arch Linux</a></span></div><div class="post-meta-line"><span title="发布于 2023-08-15 13:18:20"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-08-15">2023-08-15</time></span>&nbsp;<span title="更新于 2024-07-18 17:39:15"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="497 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+      <div class="post-meta-line"><span class="post-author"><span class="author"><img loading="lazy" src="https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg" alt="PILIHU(Spark)" data-title="PILIHU(Spark)" width="20" height="20" class="avatar" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/>&nbsp;PILIHU(Spark)</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/arch-linux/" class="post-category" title="分类 - Arch Linux"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Arch Linux</a></span></div><div class="post-meta-line"><span title="发布于 2023-08-15 13:18:20"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-08-15">2023-08-15</time></span>&nbsp;<span title="更新于 2024-07-18 23:44:34"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-18">2024-07-18</time></span>&nbsp;<span title="497 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -756,7 +756,7 @@ WiFi —— 使用 <a href="https://wiki.archlinuxcn.org/wiki/Iwd#iwctl"target="
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2024-07-18 17:39:15">更新于 2024-07-18&nbsp;</span>
+        <span title="更新于 2024-07-18 23:44:34">更新于 2024-07-18&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
