@@ -5,7 +5,7 @@ tags: Blog
 categories: Blog
 ---
 {{< admonition quote >}}
-Hugo是世界上最快的构建网页的框架\
+Hugo是世界上最快的构建网页的框架
 ——[ Hugo官网 ](https://gohugo.io/)
 {{< /admonition >}}
 # 安装Hugo
