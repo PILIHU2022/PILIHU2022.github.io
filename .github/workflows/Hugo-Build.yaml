@@ -19,7 +19,7 @@ jobs:
           extended: true
       - name: Hugo Build
         run: |
-          git submodule update --remote --merge themes/FixIt
+          git submodule update --init --remote --merge themes/FixIt
           hugo
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
