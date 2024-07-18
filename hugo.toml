@@ -326,7 +326,7 @@ enableEmoji = true
     name = "PILIHU(Spark)"
     email = "2812167783@qq.com"
     link = ""
-    avatar = "/img/"
+    avatar = "https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg"
 
   # FixIt 0.3.0 | NEW public Git repository information only then enableGitInfo is true
   [params.gitInfo]
