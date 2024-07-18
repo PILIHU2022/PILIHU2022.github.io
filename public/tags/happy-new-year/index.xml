@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Happy New Year - 标签 - PILIHU&#39;s Blog</title>
+    <link>http://localhost:1313/tags/happy-new-year/</link>
+    <description>Happy New Year - 标签 | PILIHU&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>简体中文</language><managingEditor>2812167783@qq.com (PILIHU(Spark))</managingEditor>
+      <webMaster>2812167783@qq.com (PILIHU(Spark))</webMaster><lastBuildDate>Mon, 01 Jan 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:1313/tags/happy-new-year/" rel="self" type="application/rss+xml" /><item>
+  <title>新年快乐！</title>
+  <link>http://localhost:1313/posts/happy-new-year-2024/</link>
+  <pubDate>Mon, 01 Jan 2024 00:00:00 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/happy-new-year-2024/</guid>
+  <description><![CDATA[Happy New Year! 本Blog在此祝大家新年快乐！ 再见2023，你好2024！ Goodbye 2023,Hello2024! ]]></description>
+</item>
+</channel>
+</rss>

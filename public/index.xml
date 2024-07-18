@@ -1,0 +1,142 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>PILIHU&#39;s Blog</title>
+    <link>http://localhost:1313/</link>
+    <description>PILIHU&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>简体中文</language><managingEditor>2812167783@qq.com (PILIHU(Spark))</managingEditor>
+      <webMaster>2812167783@qq.com (PILIHU(Spark))</webMaster><lastBuildDate>Thu, 18 Jul 2024 12:00:59 &#43;0000</lastBuildDate>
+      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+  <title>使用Hugo搭建Blog</title>
+  <link>http://localhost:1313/posts/hugo-blog/</link>
+  <pubDate>Thu, 18 Jul 2024 12:00:59 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/hugo-blog/</guid>
+  <description><![CDATA[Hugo介绍 Hugo是世界上最快的构建网页的框架
+—— Hugo官网 安装Hugo Arch Linux：
+1 sudo pacman -S hugo 其余发行版请自行使用包管理器搜索并安装
+开始使用 首先创建一个空白网站
+1 hugo new site &lt;Site_name&gt; 注意 这个操作会创建一个文件夹，包含Hugo的默认文件 安装主题 博客是写给自己看的 所以挑选一个自己心仪的主题很重要。
+你可以在Hugo的主题网站中查找 技巧 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:) 然后你可以点击Download按钮，以跳转至GitHub页面，查看README.md以安装主题。
+这里以FixIt主题为例 FixIt主题网站，你可以查看文档
+转至GitHub页面，你可以提出issue和pull request以解决问题和完善文档\
+安装主题 切换到博客目录，执行
+1 git init 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站） 将[FixIt]主题作为Git子模块添加到你的项目中的themes目录。
+1 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt 备份目录中的hugo.toml文件，并将主题中的hugo.toml文件复制出来
+1 mv hugo.toml hugo.toml.back &amp;&amp; cp /themes/FixIt/hugo.toml ./ 在站点配置文件中添加一行，指定当前主题。
+1 echo &#34;theme = &#39;FixIt&#39;&#34; &gt;&gt; hugo.toml 在站点配置文件中添加一行，指定默认的内容语言。
+1 echo &#34;defaultContentLanguage = &#39;zh-cn&#39;&#34; &gt;&gt; hugo.]]></description>
+</item>
+<item>
+  <title>Arch Linux自动登录</title>
+  <link>http://localhost:1313/posts/auto-login-arch/</link>
+  <pubDate>Mon, 12 Feb 2024 22:18:02 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/auto-login-arch/</guid>
+  <description><![CDATA[Arch Linux怎么自动登录，而且是免密的，应该会有一些人会这样想，毕竟如果用户名的密码过长，而且密码错以后又要重输，想必是让人血压升高的问题。今天，教程来了 当然免密登录也会出现一些安全问题 本教程具有一定的时限性，具体操作以Arch Wiki为准！ 参考Arch Wiki:Getty 开始操作 1 sudo pacman -S util-linux 若已安装可不用重新安装
+写入一个systemd服务文件: 1 sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf 若没有getty@1.service.d文件夹，请创建: 1 sudo mkdir /etc/systemd/system/getty@tty1.service.d 将以下代码写入/etc/systemd/system/getty@tty1.service.d/override.conf中:
+1 2 3 [Service] ExecStart= ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM 注:这里的username要更改为你的用户名,不能照抄别问我是怎么知道的
+若你不知道你的用户名，请使用以下命令来查看
+1 whoami 启动该服务 1 sudo systemctl enable getty@tty1 抢救方法(如果没有照抄上面的代码,可以不看) 我们先解析一下服务文件名,从&quot;getty@tty1&quot;中，我们得知这个服务是针对tty1的，对其他tty不受影响(如tty2)
+切换到其他tty 按住Ctrl+shift+&lt;F2&gt;切换到tty2，然后登录用户，修改刚刚的配置文件
+1 sudo nvim /etc/systemd/system/getty@tty1.service.d/override.conf 然后将username改为你的用户名
+来看看作者是怎么修的 重启进入liveCD，挂载Arch Linux所在的硬盘，然后修改配置文件
+1 sudo vim /mnt/etc/systemd/system/getty@tty1.service.d/override.conf 将username修改为我的用户名，重启]]></description>
+</item>
+<item>
+  <title>提取Cloudflare Zero Trust节点</title>
+  <link>http://localhost:1313/posts/get-cloudflare-node/</link>
+  <pubDate>Tue, 06 Feb 2024 14:07:46 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/get-cloudflare-node/</guid>
+  <description><![CDATA[本文记录作者提取Cloudflare Zero Trust的节点的过程以及所用的工具 开始 首先需要你有一个Cloudflare账号，并且有Zero Trust，没有可以看这篇文章
+开始操作 首先介绍一下作者的设备： OS:Arch Linux 内核:linux-zen6.7.3 Clash-meta 1.18.1-2 由于Cloudflare Zero Trust是使用WireGuard协议，所以我们需要使用一个支持WireGuard协议的客户端，可以更换为其他的
+本文以Arch Linux为例
+首先 介绍一下作者提取节点时所用到的工具：
+Warp2Clash by CMLiussss 优选IP脚本 by MisakaNo 提取PrivateKey和PublicKey的工具 by MisakaNo(WGCF)
+或 提取PrivateKey和PublicKey的工具 by MisakaNo(Warp-go) 开始操作 首先你需要提取出来你的Zero Trust的PrivateKey和PublicKey，没有的话可以看这里
+将Warp2Clash脚本下载下来：
+1 wget -N -P Warp2Clash https://raw.githubusercontent.com/cmliu/Warp2Clash/main/W2C_start.sh &amp;&amp; cd Warp2Clash &amp;&amp; chmod +x W2C_start.sh 若你有WARP账户许可证密钥，可以使用以下命令： 1 ./W2C_start.sh {WARP账户许可证密钥} 如果你有PrivateKey和PublicKey的话可以使用以下命令： 1 ./W2C_start.sh {PrivateKey} {PublicKey} {IPv6} 获取PrivateKey和PublicKey 首先打开提取工具，然后按照提示填写，Zero Trust用户选择“3”，然后访问网站并且将token复制到控制台回车，然后等待即可获取到PrivateKey和PublicKey，保留备用 优选IP，将优选IP脚本下载下来： 1 wget -N https://gitlab.com/Misaka-blog/warp-script/-/raw/main/files/warp-yxip/warp-yxip.sh 然后为脚本添加运行权限：
+1 chmod +x .]]></description>
+</item>
+<item>
+  <title>在Arch Linux上安装AMD显卡驱动</title>
+  <link>http://localhost:1313/posts/install-amd-graphics-on-arch/</link>
+  <pubDate>Sat, 27 Jan 2024 20:45:01 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/install-amd-graphics-on-arch/</guid>
+  <description><![CDATA[设备: 显卡：AMD Radeon RX 6500 XT 参照Wiki 如果动手能力及理解能力比较好的话可以参考ArchWiki： AMDGPU ATI Arch简明指南-Arch显卡驱动（不推荐！可能更新不及时，不过你可以参考一下那里的查看显卡架构小结） 注意 Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！ 安装 如果你碰巧与我使用的显卡是一样的，很好，你仍可能需要参照Wiki 此处以AMD Radeon RX 6500 XT为例，安装AMDGPU驱动，ATI驱动请自行Google和参照Arch Wiki 首先需要安装mesa包，使用以下命令：
+1 sudo pacman -S mesa lib32-mesa # lib32-mesa是对于32位程序，需要开启multilib 添加DDX驱动支持：
+1 sudo pacman -S xf86-video-amdgpu 在Wiki上所提到的其他软件，可以按需求安装，但是安装后的llvm和llvm-libs是没有-git结尾，否则，请重新安装llvm和llvm-libs：
+1 sudo pacman -S llvm llvm-libs 如果遇到有包依赖，请卸载掉(因为这些包大概都可能是以-git)结尾的，安装好llvm和llvm-libs后再安装回刚刚卸载的包(应该是没有-git结尾的)
+以下是我求助的图片及帖文 帖文
+电报中文群组1-图床 电报中文群组2-图床
+电报中文群组1-OneDrive 电报中文群组2-OneDrive]]></description>
+</item>
+<item>
+  <title>从LX-Music转移到网易云音乐</title>
+  <link>http://localhost:1313/posts/move-to-netease-cloud-music/</link>
+  <pubDate>Mon, 22 Jan 2024 20:15:29 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/move-to-netease-cloud-music/</guid>
+  <description><![CDATA[将歌单转移到网易云 LX的备份文件虽然具有歌曲名等信息，可以以打开压缩包的形式打开备份文件，但是这并没有什么用，没办法导入到网易云。 只能用最愚蠢的方法：一个一个搜索歌曲名； 缺点不用多说：
+效率低下； 累人 方法2：使用网易云自带的识别但很鸡肋 在经过作者不懈地努力后，终于将我Lx-music中的歌曲转移到了网易云歌单 推广（网易云活动，推荐看完）： 网易云推出了一个活动，为“免费听歌”，可在侧滑栏看到，看些广告就可以获得近4小时的免费听歌时间
+要求： 貌似现在没有要求了 非VIP用户吧？
+The end ]]></description>
+</item>
+<item>
+  <title>注册eu.org域名及其他</title>
+  <link>http://localhost:1313/posts/request-eu.org/</link>
+  <pubDate>Fri, 19 Jan 2024 21:58:46 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/request-eu.org/</guid>
+  <description><![CDATA[该文章未完成！ {% note warning %} Warning: 最近 nic.eu.org 网站出现问题，导致作者无法完成该文章，网站恢复后立即完成！ {% endnote %}
+介绍 Eu.org名称如此，但是它与欧盟没有任何关系 Eu.org提供了域名（被Cloudflare认为顶域，可绑定）
+开始申请 注册账户 注册账户需要一个真实邮箱，用于验证，可用QQ邮箱 信息可随便填写，手机号不用验证。
+验证用户 打开邮箱的收件箱，看见一个名为‘noreply@nic.eu.org’ 若无可以看看垃圾箱，点击链接即可验证
+登录账号 打开官网 在‘Sign-in or sign-up here!’点击‘here’来登录，]]></description>
+</item>
+<item>
+  <title>使用Clash-Meta及所遇到的问题</title>
+  <link>http://localhost:1313/posts/use-clash-meta/</link>
+  <pubDate>Thu, 18 Jan 2024 17:46:58 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/use-clash-meta/</guid>
+  <description><![CDATA[clash-meta是一个clash的内核分支，它支持WireGuard协议，所以我选择他（ 安装clash-meta 使用该操作你需要使用Arch LinuxCN源
+1 sudo pacman -S clash-meta 使用 首先到/etc/clash-meta中，你应该会看见以下文件： /etc/clash-meta]]></description>
+</item>
+<item>
+  <title>免信用卡申请Cloudflare Zero Trust</title>
+  <link>http://localhost:1313/posts/request-cloudflare-warp/</link>
+  <pubDate>Wed, 17 Jan 2024 23:05:59 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/request-cloudflare-warp/</guid>
+  <description><![CDATA[客户端们 Android：Cloudflare One Agent Windows；macOS；Linux等见官网 官方说明了在iOS和Android下使用Zero Trust的必须切换为Cloudflare One Agent，而Windows；macOS；Linux则不需要操作：
+macOS, Windows, and Linux No action is required for desktop clients at this time. The existing Cloudflare WARP client will continue to support both Zero Trust and 1.1.1.1 functionality. ​​iOS and Android Zero Trust users must migrate from the 1.1.1.1 app to the Cloudflare One Agent app by 2023-12-31. Organizations can migrate their teams with minimal disruption in one of two modes: manually or via a managed endpoint solution.]]></description>
+</item>
+<item>
+  <title>实现自动更新Blog(GitHub Actions&#43;Hexo deploy)</title>
+  <link>http://localhost:1313/posts/auto-update-bloggithub-actions-hexo-deploy/</link>
+  <pubDate>Fri, 12 Jan 2024 22:49:09 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/auto-update-bloggithub-actions-hexo-deploy/</guid>
+  <description><![CDATA[坑已挖，等待填补 To be complete ]]></description>
+</item>
+<item>
+  <title>实现自动更新Blog(actions-gh-page)</title>
+  <link>http://localhost:1313/posts/auto-update-bloggithub-actions-actions-gh-page/</link>
+  <pubDate>Fri, 12 Jan 2024 22:47:52 &#43;0000</pubDate>
+  <author>PILIHU(Spark)</author>
+  <guid>http://localhost:1313/posts/auto-update-bloggithub-actions-actions-gh-page/</guid>
+  <description><![CDATA[简介 群友“竹林里有冰”的Blog有一个部署方案，如下： 我的博客部署方案
+开始码GitHub Actions代码 如果不想写的话可以借鉴： 1 PILIHU2022.github.io/Actions 2 竹林里有冰的代码
+安装Node.js 由于GitHub Actions没法使用Ubuntu的apt包管，所以只能使用actions/nodejs，使用@来指定版本，我这里指定的是version 3中的Node.js 21版本，代码中的actions/checkout只用于切换到该仓库;
+安装相关依赖 你需要将你本地仓库中的package.json添加到GitHub仓库中，代码中是这样的:
+1 2 3 4 - name: Install Dependencies run: npm install; # 分号不可省略，否则将会被识别成一条命令 npm update # 更新安装的软件（Hexo等） 为每个文件重新设定最后修改时间 这一步其实是挺重要的，Hexo框架生成每篇文章的最后修改时间的依据是该文件的最后修改时间，而对于 Github Action 的容器来说，每一个文件都刚刚被下载下来，都是最新的，这就会导致你的每一篇文章每次部署时都会被认为刚才修改过。 我们这边可以直接使用 git 记录的时间来作为文件的最后修改时间。
+设置时区 Blog基本都是用来给自己看的 所以时区当然要设置成中国标准时间（东八区） 使用
+1 export = TZ=&#39;Asia/Shanghai&#39; 生成网页 1 yarn build 如果不需要部署到VPS的到此处就可以了
+以下是使用GitHub Pages来更新Blog（该段未完成） 若想部署到VPS，参考部署到VPS
+Q:为什么我已经将GitHub Actions搞定了，且将博文上传至GitHub仓库了，但是没有更新，GitHub Actions也没有报错 A:请检查你的GitHub Pages设置（位置在Settings &gt; Pages）中的“Build and deployment”，在source中选择Deploy from a branch]]></description>
+</item>
+</channel>
+</rss>
