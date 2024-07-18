@@ -4,10 +4,9 @@ date: 2024-07-18 12:00:59
 tags: Blog
 categories: Blog
 ---
-{{< admonition quote >}}
-Hugo是世界上最快的构建网页的框架
+# Hugo介绍
+> Hugo是世界上最快的构建网页的框架\
 ——[ Hugo官网 ](https://gohugo.io/)
-{{< /admonition >}}
 # 安装Hugo
 Arch Linux：
 ```
