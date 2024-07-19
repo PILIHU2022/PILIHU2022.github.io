@@ -1,4 +1,4 @@
-# 使用Hugo搭建Blog
+# 使用Hugo搭建Blog&#43;GitHub Actions实现自动部署
 
 
 # Hugo介绍
@@ -82,10 +82,10 @@ hugo -D
 ```
 同理，也可以在开发服务器中使用`-D`。
 # 使用GitHub Actions实现自动部署博客
-{{&lt; admonition &gt;}}
-请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~
-Cloudflare Pages所提供的Hugo版本落后，为`0.118`版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！
-{{&lt; /admonition &gt;}}
+&lt;!--{{&lt; admonition &gt;}}--&gt;
+&lt;!--请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~--&gt;
+&lt;!--Cloudflare Pages所提供的Hugo版本落后，为`0.118`版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！--&gt;
+&lt;!--{{&lt; /admonition &gt;}}--&gt;
 首先，在GitHub中新建博客仓库，命名为`&lt;User-name&gt;.github.io`
 在本地Git中添加远程仓库
 ```
@@ -149,5 +149,5 @@ jobs:
 ---
 
 > 作者: PILIHU(Spark)  
-> URL: https://pilihu2022.github.io/posts/hugo-blog/  
+> URL: https://pilihu2022.github.io/posts/hugo-blog-github/  
 
