@@ -1,6 +1,6 @@
 ---
-title: 使用Hugo搭建Blog+GitHub Actions实现自动部署
-date: 2024-07-19 12:01:15
+title: 使用Hugo搭建Blog+Cloudflare Pages实现自动部署
+date: 2024-07-19 5:00:00
 tags: Blog
 categories: Blog
 draft: false

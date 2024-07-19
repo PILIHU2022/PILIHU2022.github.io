@@ -11,6 +11,8 @@ theme = 'FixIt'
 # See: https://gohugo.io/getting-started/configuration/
 # -------------------------------------------------------------------------------------
 
+# set time zone
+timezone = 'Asia/Shanghai'
 # website title
 title = "PILIHU's Blog"
 # Hostname (and path) to the root
