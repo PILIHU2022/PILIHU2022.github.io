@@ -5,9 +5,11 @@ tags: eu.org
 categories: 网站
 ---
 # <font color='red' size=10>该文章未完成！</font>
-{% note warning %}
+<!-- {% note warning %} -->
+{{< admonition >}}
 Warning: 最近 nic.eu.org 网站出现问题，导致作者无法完成该文章，网站恢复后立即完成！
-{% endnote %}
+{{< /admonition >}}
+<!-- {% endnote %} -->
 
 # 介绍
 Eu.org名称如此，但是它与欧盟没有任何关系
