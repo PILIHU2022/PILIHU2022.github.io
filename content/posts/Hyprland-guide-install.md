@@ -25,4 +25,3 @@ Hyprland
 `
 
 # All done! Enjoy it!
-## Writer:PILIHU2022

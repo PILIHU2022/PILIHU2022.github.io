@@ -62,4 +62,3 @@ GLFW_IM_MODULE=ibus
 # 本篇教程结束
 
 # All done! Enjoy it!
-## Writer:PILIHU2022
