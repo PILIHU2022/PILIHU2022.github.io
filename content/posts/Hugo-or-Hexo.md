@@ -35,5 +35,5 @@ categories: Blog
 
 ~~实在找不出来了，可以看看参考资料（本文也是基于以下两篇）~~
 # 参考资料：
-https://io-oi.me/tech/hugo-vs-hexo/
+https://io-oi.me/tech/hugo-vs-hexo/ \
 https://www.stackshare.io/stackups/hexo-vs-hugo
