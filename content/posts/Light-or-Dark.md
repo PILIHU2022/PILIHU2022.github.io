@@ -23,5 +23,5 @@ categories: Other
 缺点：
 1. 与黑暗模式对比，明亮模式会增加耗电量，这取决于你的手机屏幕
 2. 若在睡眠前使用，可能会让你保持清醒，且发出大量蓝光
-# 参考资料~~（译前原文）~~：
+# 参考资料 ~~（译前原文）~~：
 https://www.radiant.digital/dark-mode-vs-light-mode-which-is-better/
