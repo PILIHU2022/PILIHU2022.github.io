@@ -40,7 +40,6 @@ hugo new site <Site_name>
 git init
 ```
 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站）
-
 将FixIt主题作为Git子模块添加到你的项目中的`themes`目录。
 ```
 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt
@@ -87,10 +86,6 @@ hugo -D
 ```
 同理，也可以在开发服务器中使用`-D`。
 # 使用Cloudflare Pages实现自动部署博客
-<!--{{< admonition >}}-->
-<!--请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~-->
-<!--Cloudflare Pages所提供的Hugo版本落后，为`0.118`版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！-->
-<!--{% endnote %}-->
 {% note warning %}
 使用FixIt主题的话，请在Pages的设置中添加环境变量以指定Hugo版本
 如`HUGO_VERSION`:`0.129.0`
