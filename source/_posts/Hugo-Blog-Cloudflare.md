@@ -41,7 +41,7 @@ git init
 ```
 来初始化一个空的Git存储库（之后用于GitHub Actions自动构建部署网站）
 
-将[FixIt]主题作为Git子模块添加到你的项目中的`themes`目录。
+将FixIt主题作为Git子模块添加到你的项目中的`themes`目录。
 ```
 git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt
 ```
