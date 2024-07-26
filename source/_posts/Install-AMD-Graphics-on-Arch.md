@@ -11,7 +11,7 @@ categories: Arch Linux
 如果动手能力及理解能力比较好的话可以参考ArchWiki：
 [AMDGPU](https://wiki.archlinuxcn.org/wiki/AMDGPU)
 [ATI](https://wiki.archlinuxcn.org/wiki/ATI)
-[Arch简明指南-Arch显卡驱动](https://arch.icekylin.online/guide/rookie/graphic-driver.html#%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1)（不推荐！可能更新不及时，不过你可以参考一下那里的查看显卡架构小结）
+[Arch简明指南-Arch显卡驱动](https://arch.icekylin.online/guide/rookie/graphic-driver.html#%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1)（不推荐！可能更新不及时，不过你可以参考一下那里的查看[选择驱动程序](https://arch.icekylin.online/guide/rookie/graphic-driver.html#amd-%E9%9B%86%E6%88%90%E6%98%BE%E5%8D%A1)的小节）
 {% note warning %}
 Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！
 {% endnote %}

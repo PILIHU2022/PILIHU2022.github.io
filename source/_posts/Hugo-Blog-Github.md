@@ -20,16 +20,16 @@ sudo pacman -S hugo
 ```
 hugo new site <Site_name>
 ```
-{{< admonition >}}
+{% note wraning %}
 这个操作会创建一个文件夹，包含Hugo的默认文件
-{{< /admonition >}}
+{% endnote %}
 ## 安装主题
 ### ~~博客是写给自己看的~~
 所以挑选一个自己心仪的主题很重要。\
 你可以在Hugo的[主题网站](https://themes.gohugo.io)中查找
-{{< admonition tip >}}
+{% note wraning %}}
 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:)
-{{< /admonition >}}
+{% endnote %}
 然后你可以点击`Download`按钮，以跳转至GitHub页面，查看`README.md`以安装主题。
 
 ### 这里以`FixIt`主题为例
@@ -68,7 +68,7 @@ hugo server
 hugo
 ```
 来构建网站
-{% note warning modern %}
+{% note wraning %}
 这并不会在本地启动开发服务器，而是将构建后的网页文件放在`public`文件夹下
 {% endnote %}
 ### 使用草稿
@@ -87,10 +87,10 @@ hugo -D
 ```
 同理，也可以在开发服务器中使用`-D`。
 # 使用GitHub Actions实现自动部署博客
-<!--{{< admonition >}}-->
+<!--{% note wraning %}-->
 <!--请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~-->
 <!--Cloudflare Pages所提供的Hugo版本落后，为`0.118`版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！-->
-<!--{{< /admonition >}}-->
+<!--{% endnote %}-->
 首先，在GitHub中新建博客仓库，命名为`<User-name>.github.io`
 在本地Git中添加远程仓库
 ```
@@ -101,7 +101,7 @@ git remote add origin https://github.com/<User-name>/<User-name>.github.io.git
 mkdir .github/workflows
 ```
 新建一个YAML文件，文件名随意，输入以下内容
-{% note warning modern%}
+{% note wraning %}
 若使用以下代码，请认真看代码后的注意事项！
 {% endnote %}
 ```yaml

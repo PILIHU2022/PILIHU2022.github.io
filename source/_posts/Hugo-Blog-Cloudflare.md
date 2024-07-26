@@ -3,7 +3,6 @@ title: 使用Hugo搭建Blog+Cloudflare Pages实现自动部署
 date: 2024-07-19 5:00:00
 tags: Blog
 categories: Blog
-draft: false
 ---
 
 # Hugo介绍
@@ -20,14 +19,14 @@ sudo pacman -S hugo
 ```
 hugo new site <Site_name>
 ```
-{% note warning modern %}
+{% note warning %}
 这个操作会创建一个文件夹，包含Hugo的默认文件
 {% endnote %}
 ## 安装主题
 ### ~~博客是写给自己看的~~
 所以挑选一个自己心仪的主题很重要。\
 你可以在Hugo的[主题网站](https://themes.gohugo.io)中查找
-{% note info modern %}
+{% note info %}
 建议查找更新日期较近的主题，以避免有废弃的主题（可能失去了作者支持）。当然，只要你喜欢就好:)
 {% endnote %}
 然后你可以点击`Download`按钮，以跳转至GitHub页面，查看`README.md`以安装主题。
@@ -68,7 +67,7 @@ hugo server
 hugo
 ```
 来构建网站
-{% note info modern %}
+{% note warning %}
 这并不会在本地启动开发服务器，而是将构建后的网页文件放在`public`文件夹下
 {% endnote %}
 ### 使用草稿
@@ -90,11 +89,11 @@ hugo -D
 <!--{{< admonition >}}-->
 <!--请不要尝试在Cloudflare Pages中构建Hugo博客~~，别问我怎么知道的~~-->
 <!--Cloudflare Pages所提供的Hugo版本落后，为`0.118`版本，貌似不支持tags和categories功能，如果想要使用，请使用其他的提供商！-->
-<!--{{< /admonition >}}-->
-{{< admonition >}}
+<!--{% endnote %}-->
+{% note warning %}
 使用FixIt主题的话，请在Pages的设置中添加环境变量以指定Hugo版本
 如`HUGO_VERSION`:`0.129.0`
-{{< /admonition >}}
+{% endnote %}
 首先，在GitHub中新建博客仓库，命名为`<User-name>.github.io`
 在本地Git中添加远程仓库
 ```
@@ -114,7 +113,7 @@ resource
 到Cloudflare官网，点击侧边栏的`Workers & Pages`
 选择`Pages`，点击连接到GitHub，选择你创建的博客仓库
 选择生产分支为你Hugo博客存放的分支，框架预设选择`Hugo`，构建命令不改。
-{% note info modern%}
+{% note warning %}
 若使用`tags`和`categories`，请添加环境变量：
 `HUGO_VERSION = 0.129.0`
 {% endnote %}
