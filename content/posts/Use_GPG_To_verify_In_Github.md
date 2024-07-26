@@ -74,7 +74,7 @@ Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?
 然后重复刚才所输入的密码
 {{< admonition >}}
 注：这里输入密码不会显示，~~请尽管输入~~
-{{< /admoniton >}}
+{{< /admonition >}}
 ## 查看密钥是否创建
 ```
 gpg --list-secret-keys --keyid-format=long
