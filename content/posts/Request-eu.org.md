@@ -10,7 +10,9 @@ categories: 网站
 Warning: 最近 nic.eu.org 网站出现问题，导致作者无法完成该文章，网站恢复后立即完成！
 {{< /admonition >}}
 <!-- {% endnote %} -->
-
+{{< admonition >}}
+Warning: 目前该网站疑似不再通过新的请求，请移步到[注册us.kg域名](https://hugo.pilihu.us.kg/Request-us.kg)
+{{< /admonition >}}
 # 介绍
 Eu.org名称如此，但是它与欧盟没有任何关系
 Eu.org提供了域名（被Cloudflare认为顶域，可绑定）
