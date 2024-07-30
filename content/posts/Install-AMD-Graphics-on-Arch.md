@@ -12,6 +12,7 @@ categories: Arch Linux
 [AMDGPU](https://wiki.archlinuxcn.org/wiki/AMDGPU)
 [ATI](https://wiki.archlinuxcn.org/wiki/ATI)
 [Arch简明指南-Arch显卡驱动](https://arch.icekylin.online/guide/rookie/graphic-driver.html#%E7%8B%AC%E7%AB%8B%E6%98%BE%E5%8D%A1)（不推荐！可能更新不及时，不过你可以参考一下那里的查看显卡架构小结）
+
 {{< admonition >}}
 Warning：不要查看野教程！！不要查看野教程！！不要查看野教程！！
 {{< /admonition >}}
