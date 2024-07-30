@@ -528,14 +528,14 @@ enableEmoji = true
 
   # FixIt 0.2.16 | CHANGED Social config about the author
   [params.social]
-    GitHub = ""
+    GitHub = "PILIHU2022"
     Linkedin = ""
-    Twitter = ""
+    Twitter = "@PILIHU2023"
     Instagram = ""
     Facebook = ""
-    Telegram = ""
+    Telegram = "@PILIHU"
     Medium = ""
-    Gitlab = ""
+    Gitlab = "PILIHU"
     Youtubelegacy = ""
     Youtubecustom = ""
     Youtubechannel = ""
@@ -595,7 +595,7 @@ enableEmoji = true
     Ko-Fi = ""
     BuyMeaCoffee = ""
     Linktree = ""
-    QQ = ""
+    QQ = "2812167783"
     QQGroup = "" # https://qun.qq.com/join.html
     Diaspora = ""
     CSDN = ""
@@ -613,7 +613,7 @@ enableEmoji = true
     Douyin = ""
     TikTok = ""
     Phone = ""
-    Email = ""
+    Email = "2812167783@qq.com"
     RSS = true
     # custom social links like the following
     # [params.social.twitter]
@@ -627,7 +627,7 @@ enableEmoji = true
   # TypeIt config
   [params.typeit]
     # typing speed between each step (measured in milliseconds)
-    speed = 100
+    speed = 90
     # blinking speed of the cursor (measured in milliseconds)
     cursorSpeed = 1000
     # character used for the cursor (HTML format is supported)
@@ -754,9 +754,9 @@ enableEmoji = true
 
   # FixIt 0.2.16 | NEW Reading progress bar
   [params.readingProgress]
-    enable = false
+    enable = true
     # Available values: ["left", "right"]
-    start = "left"
+    start = "light"
     # Available values: ["top", "bottom"]
     position = "top"
     reversed = false
