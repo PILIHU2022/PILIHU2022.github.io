@@ -507,7 +507,7 @@ enableEmoji = true
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/img/My-Avatar.webp"
+      avatarURL = "https://s1.imagehub.cc/images/2024/07/18/d24853d93ff1cfb72054caeda3399846.jpeg"
       # FixIt 0.2.17 | NEW identifier of avatar menu link
       avatarMenu = ""
       # title shown in home page (HTML format is supported)
