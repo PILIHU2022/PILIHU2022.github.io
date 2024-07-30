@@ -360,7 +360,7 @@ enableEmoji = true
 
   # Search config
   [params.search]
-    enable = false
+    enable = true
     # type of search engine ["algolia", "fuse"]
     type = "fuse"
     # max index length of the chunked content
@@ -418,7 +418,7 @@ enableEmoji = true
 
   # FixIt 0.2.18 | NEW Breadcrumb config
   [params.breadcrumb]
-    enable = false
+    enable = true
     sticky = false
     showHome = false
 
@@ -750,7 +750,7 @@ enableEmoji = true
   [params.backToTop]
     enable = true
     # Scroll percent label in b2t button
-    scrollpercent = false
+    scrollpercent = true
 
   # FixIt 0.2.16 | NEW Reading progress bar
   [params.readingProgress]
@@ -1083,9 +1083,9 @@ enableEmoji = true
         darkTheme = "github-dark"
       # FixIt 0.2.13 | NEW Twikoo comment config (https://twikoo.js.org/)
       [params.page.comment.twikoo]
-        enable = false
-        envId = ""
-        region = ""
+        enable = true
+        envId = "twikoo.pilihu.us.kg"
+        region = "ap-dongguan"
         path = ""
         visitor = true
         commentCount = true
