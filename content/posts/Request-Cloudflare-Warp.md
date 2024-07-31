@@ -4,6 +4,9 @@ date: 2024-01-17 23:05:59
 tags: Cloudflare
 categories: 白嫖
 ---
+{{< admonition >}}
+Warning:Cloudflare Zero Trust的API请求已被我们的GFW拦截，已经失效！
+{{< /admonition >}}
 # 客户端们
 Android：[Cloudflare One Agent](https://pilihu2023-my.sharepoint.com/:u:/g/personal/pilihu_pilihu2023_onmicrosoft_com/ERwqnqCENdpNu3lZDh2Yf24BG8JUk3J1-2PYzGyJgIMIBg?e=eLDgjg)
 Windows；macOS；Linux等见[官网](https://1.1.1.1/)
